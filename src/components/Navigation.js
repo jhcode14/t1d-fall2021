@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, Container } from 'react-bootstrap';
+import { Button } from "./Button.style";
 import navstyle from "../styles/nav.css";
 
 function Navigation(props) {
@@ -14,6 +15,7 @@ function Navigation(props) {
                     className={navstyle.aligntop}
                     alt="T1D logo"
                     />
+                    <Button> Create Mine</Button>
                 </Navbar.Brand>
             </Container>
         </Navbar>
