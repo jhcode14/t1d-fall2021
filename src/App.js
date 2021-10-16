@@ -3,6 +3,7 @@ import './App.css';
 
 import React from "react";
 import Navigation from './components/Navigation.js';
+import Overview from './components/Overview.js';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
     
       <Navigation />
+      <Overview />
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
