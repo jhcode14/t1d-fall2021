@@ -21,3 +21,29 @@
     font-size: 24px;
     line-height: 29px;
 }
+
+.grid {
+    display: flex;
+}
+
+.boxes {
+    border-radius: 9px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 2%;
+}
+
+#minutes {
+    background-color: #FFF9DF;
+    margin-left: 100px;
+}
+
+#cost {
+    background-color: #E5E7EB;
+    margin-left: 16px;
+}
+
+#research {
+    background-color: #E5E7EB;
+    margin-left: 16px;
+}
