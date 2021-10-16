@@ -14,9 +14,9 @@ class Why extends React.Component {
                         <h2 id="heading">Why care directive?</h2>
                         <div id="explanation_container">
                             <ul id="list">
-                                <li>Start a conversation with your provider about healthcare options.</li>
-                                <li>Educate others about your diabetes facts and care instructions easily. </li>
-                                <li>Show your expert knowledge and life of experience.</li>
+                                <li className="list_item">Start a conversation with your provider about healthcare options.</li>
+                                <li className="list_item">Educate others about your diabetes facts and care instructions easily. </li>
+                                <li className="list_item">Show your expert knowledge and life of experience.</li>
                             </ul>
                         </div>
                     </Col>
