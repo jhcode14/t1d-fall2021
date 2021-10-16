@@ -5,6 +5,7 @@ import './styles/fonts.css';
 import React from "react";
 import Navigation from './components/Navigation.js';
 import Overview from './components/Overview.js';
+import Why from './components/Why.js';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     
       <Navigation />
       <Overview />
+      <Why />
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />

@@ -53,11 +53,13 @@
 #minutes {
     background-color: #FFF9DF;
     margin-left: 80px;
+    width: 15%;
 }
 
 #cost {
     background-color: #E5E7EB;
     margin-left: 16px;
+    width: 20%
 }
 
 #research {
