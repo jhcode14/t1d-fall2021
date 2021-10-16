@@ -6,8 +6,8 @@ import "../styles/overview.css"
 class Overview extends React.Component {
     render() {
         return (
-            <Container className="overview_spacing">
-                <Row className="grid">
+            <Container id="overview_spacing">
+                <Row id="grid">
                     <Col 
                         id="minutes"
                         className="boxes"

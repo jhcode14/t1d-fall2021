@@ -2,10 +2,14 @@
     may need to remove overview spacing for when we actually put together the components
 */
 
-.overview_spacing {
+#overview_spacing {
     margin-top: 100px;   
     margin-bottom: 100px;
 }
+
+/*
+    classes
+*/
 
 .number {
     font-family: 'Inter';
@@ -38,16 +42,20 @@
     color: #000000;
 }
 
-.grid {
-    display: flex;
-}
-
 .boxes {
     border-radius: 9px;
     margin-left: 10px;
     margin-right: 10px;
     padding: 2%;
     text-align: left;
+}
+
+/*
+    ids
+*/
+
+#grid {
+    display: flex;
 }
 
 #minutes {
