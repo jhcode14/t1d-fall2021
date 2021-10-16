@@ -6,6 +6,7 @@ import React from "react";
 import Navigation from './components/Navigation.js';
 import Overview from './components/Overview.js';
 import Why from './components/Why.js';
+import Example from './components/Example.js';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Navigation />
       <Overview />
       <Why />
+      <Example />
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
