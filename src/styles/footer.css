@@ -10,6 +10,10 @@
     }
 }
 
+/*
+    classes
+*/
+
 .Flogo {
     /* this needs to later on be adjusted based on screen width */
     margin-right: 54%;
@@ -20,8 +24,12 @@
     text-align: left;
     font-family: 'Inter';
     font-style: 'normal';
+    white-space: nowrap;
 }
 
+/*
+    ids
+*/
 
 #Fgrid {
     display: flex;

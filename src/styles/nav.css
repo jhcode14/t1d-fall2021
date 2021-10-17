@@ -3,7 +3,9 @@
     border-bottom: 1px solid black;
 }
 
-
+/*
+    classes
+*/
 
 .NButtonText {
     margin: 25px 12px;
@@ -12,6 +14,9 @@
     padding: 12px 24px;
 }
 
+/*
+    ids
+*/
 
 #Ngrid {
     display: flex;
