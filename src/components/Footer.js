@@ -15,7 +15,9 @@ import React from 'react';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
-import "../styles/footer.css"
+import "../styles/footer.css";
+
+import logo from '../images/ddi_logo.png';
 
 class Footer extends React.Component {
     render() {
@@ -24,8 +26,8 @@ class Footer extends React.Component {
                 <Row id='Fgrid'>
                     <Col className="Flogo">
                         <img
-                        src="/logo.png"
-                        width="230 px"
+                        src={logo}
+                        width="400 px"
                         height="100 px"
                         alt="T1D logo"
                         />
