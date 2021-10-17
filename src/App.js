@@ -1,4 +1,5 @@
 import './App.css';
+import './styles/fonts.css';
 
 import React from "react";
 import Navigation from './components/Navigation.js';
@@ -8,7 +9,6 @@ import Example from './components/Example.js';
 import CreationGIF from './components/CreationGIF.js';
 import CreateDirective from './components/CreateDirective.js';
 import Footer from './components/Footer.js';
-
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       <CreationGIF />
       <CreateDirective />
       <Footer />
-      
+    
     </div>
   );
 }

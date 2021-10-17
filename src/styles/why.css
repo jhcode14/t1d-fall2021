@@ -1,0 +1,51 @@
+/*
+    classes
+*/
+
+.list_item {
+    margin-bottom: 5%;
+}
+
+
+/*
+    ids
+*/
+
+#box {
+    display: flex;
+    justify-content: center;
+}
+
+#heading {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 77px;
+    color: #374151;
+}
+
+#explanation_container {
+    width: 674px;
+    height: 509.55px;
+    left: 100px;
+    top: 1385px;
+    background: #374151;
+    border-radius: 13px;
+}
+
+#list {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 150%;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 10%;
+}
+
+#form_image {
+    width: 107%;
+    height: 100%;
+}
