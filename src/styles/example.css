@@ -1,0 +1,74 @@
+/*
+    classes
+*/
+
+.speech_bubble {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 150%;
+    color: #090909;
+}
+
+/*
+    id
+*/
+#left_image {
+    position: relative;
+}
+
+#doctor {
+    z-index: 1;
+    width: 25vw;
+    padding: 2%;
+    margin-left: 10vw;
+    position: relative;
+}  
+
+#first_bubble {
+    z-index: 2;
+    margin-top: -80vh;
+    margin-left: -5vw;
+    position: relative;
+}
+
+#first_speech {
+    z-index: 3;
+    position: relative;
+    margin-top: -8.5vh;
+}
+
+#right_image {
+    position: relative;
+    margin-top: 15vh;
+}
+
+#patient {
+    z-index: 4;
+    position: relative;
+    width: 40vw;
+    display: inline;
+    margin-right: -40vw;
+}
+
+#second_bubble {
+    z-index: 2;
+    margin-top: -80vh;
+    position: relative;
+}
+
+#second_speech {
+    z-index: 3;
+    position: relative;
+    margin-top: -15vh;
+    text-align: left;
+    width: 40vw;
+    margin-left: 30vw;
+}
+
+#button {
+    margin-top: 50vh;
+    padding: 5%;
+    margin-bottom: 20vh;
+}
