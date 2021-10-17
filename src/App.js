@@ -7,7 +7,7 @@ import Navigation from './components/Navigation.js';
 import Overview from './components/Overview.js';
 import Why from './components/Why.js';
 import Example from './components/Example.js';
-
+import CreationGIF from './components/CreationGIF.js';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <Overview />
       <Why />
       <Example />
+      <CreationGIF />
 
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
