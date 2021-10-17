@@ -8,6 +8,7 @@ import Why from './components/Why.js';
 import Example from './components/Example.js';
 import CreationGIF from './components/CreationGIF.js';
 import CreateDirective from './components/CreateDirective.js';
+import Footer from './components/Footer.js';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <Example />
       <CreationGIF />
       <CreateDirective />
-
+      <Footer />
+    
     </div>
   );
 }

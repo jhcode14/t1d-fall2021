@@ -1,3 +1,28 @@
-.aligntop {
+#nav_spacing{
     display: flex;
+    border-bottom: 1px solid black;
 }
+
+
+
+.NButtonText {
+    margin: 25px 12px;
+    font-family: 'Inter';
+    font-style: 'normal';
+    padding: 12px 24px;
+}
+
+
+#Ngrid {
+    display: flex;
+    margin-left: 4.09%;
+    margin-right: 75px;
+    width: 100%;
+}
+
+#Nlogo {
+    /* this needs to later on be adjusted based on screen width */
+    width: 90%;
+    display: inline-flex;
+}
+

@@ -38,6 +38,9 @@ export const Button = styled.button`
     text-align: center;
     color: white;
     background-color: #5048E5;
+
+    white-space: nowrap;
+    padding: 12px, 24px;
     
 
 
