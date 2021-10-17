@@ -1,3 +1,4 @@
-.aligntop {
+#nav_spacing{
     display: flex;
+    border: 5px solid black;
 }

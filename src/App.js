@@ -3,6 +3,7 @@ import './App.css';
 
 import React from "react";
 import Navigation from './components/Navigation.js';
+import Footer from './components/Footer.js';
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <Footer />
+      
     </div>
   );
 }

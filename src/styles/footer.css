@@ -1,0 +1,32 @@
+#footer_spacing {
+    bottom: 191;
+    width: 100%;
+    position: absolute;
+    margin-top: 100px;   
+    background: #E5E7EB;
+    /* mobile version coming soon */
+    @media (max-width: 1000px) {
+
+    }
+}
+
+.logo {
+    /* this needs to later on be adjusted based on screen width */
+    margin-right: 54%;
+}
+
+.links {
+    margin-left: 69px;
+    text-align: left;
+    font-family: 'Inter';
+    font-style: 'normal';
+}
+
+
+#grid {
+    display: flex;
+    margin-left: 5.2%;
+    margin-top: 17px;
+    margin-bottom: 74px;
+    margin-right: 75px;
+}
