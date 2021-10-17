@@ -6,25 +6,32 @@
 */
 
 import React from "react";
-import { Navbar, Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { Button } from "./Button.style";
 import "../styles/nav.css";
 
-function Navigation(props) {
-    return (
-        <Navbar bg="white">
+class Navigation extends React.Component {
+    render() {
+        return (
             <Container id="nav_spacing">
-                <Navbar.Brand herf="#home">
-                    <img
-                    src="/logo.png"
-                    width="265"
-                    height="92"
-                    alt="T1D logo"
-                    />
-                    <Button> Create Mine</Button>
-                </Navbar.Brand>
+                <Row id="Ngrid">
+                    <Col id="Nlogo">
+                        <img
+                        src="/logo.png"
+                        width="265"
+                        height="92"
+                        alt="T1D logo"
+                        />
+                    </Col>
+                    <Col>
+                        <Button className='NButtonText'> Create Mine</Button>
+                    </Col>
+                    <Col>
+                        <Button className='NButtonText'> Feedback Form</Button>
+                    </Col>
+                </Row>
             </Container>
-        </Navbar>
-    )
-}
+        );
+    }
+};
 export default Navigation;

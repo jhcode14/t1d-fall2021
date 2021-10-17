@@ -21,8 +21,8 @@ class Footer extends React.Component {
     render() {
         return (
             <Container id="footer_spacing">
-                <Row id='grid'>
-                    <Col className="logo">
+                <Row id='Fgrid'>
+                    <Col className="Flogo">
                         <img
                         src="/logo.png"
                         width="230 px"
@@ -30,11 +30,11 @@ class Footer extends React.Component {
                         alt="T1D logo"
                         />
                     </Col>
-                    <Col className="links">
+                    <Col className="Flinks">
                         <p herf="#">Login</p>
                         <p herf="#">Resource Hub</p>
                     </Col>
-                    <Col className="links">
+                    <Col className="Flinks">
                         <p herf="#">About Us</p>
                         <p herf="#">Contact Us</p>
                     </Col>
