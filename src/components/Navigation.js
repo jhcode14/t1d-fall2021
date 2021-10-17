@@ -7,7 +7,7 @@
 
 import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import { Button } from "./Button.style";
+import { Button, BlackButton } from "./Button.style";
 import "../styles/nav.css";
 
 class Navigation extends React.Component {
@@ -27,7 +27,7 @@ class Navigation extends React.Component {
                         <Button className='NButtonText'> Create Mine</Button>
                     </Col>
                     <Col>
-                        <Button className='NButtonText'> Feedback Form</Button>
+                        <BlackButton className='NButtonText'> Feedback Form</BlackButton>
                     </Col>
                 </Row>
             </Container>
