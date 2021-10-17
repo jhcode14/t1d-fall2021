@@ -7,6 +7,7 @@ import Overview from './components/Overview.js';
 import Why from './components/Why.js';
 import Example from './components/Example.js';
 import CreationGIF from './components/CreationGIF.js';
+import CreateDirective from './components/CreateDirective.js';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Why />
       <Example />
       <CreationGIF />
-
+      <CreateDirective />
 
     </div>
   );
