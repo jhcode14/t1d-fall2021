@@ -9,19 +9,21 @@ import Example from './components/Example.js';
 import CreationGIF from './components/CreationGIF.js';
 import CreateDirective from './components/CreateDirective.js';
 import Footer from './components/Footer.js';
+import Firstfold from './components/Firstfold.js'
 
 function App() {
   return (
     <div className="App">
-    
+
       <Navigation />
+      <Firstfold/>
       <Overview />
       <Why />
       <Example />
       <CreationGIF />
       <CreateDirective />
       <Footer />
-    
+
     </div>
   );
 }
