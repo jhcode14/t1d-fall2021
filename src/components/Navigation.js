@@ -7,7 +7,7 @@
 
 import React from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import { Button, BlackButton } from "./Button.style";
+import { NormalButton, BlackButton } from "./Button.style";
 import "../styles/nav.css";
 
 import logo from '../images/ddi_logo.png';
@@ -26,7 +26,7 @@ class Navigation extends React.Component {
                         />
                     </Col>
                     <Col>
-                        <Button className='NButtonText'> Create Mine</Button>
+                        <NormalButton className='NButtonText'> Create Mine</NormalButton>
                     </Col>
                     <Col>
                         <BlackButton className='NButtonText'> Feedback Form</BlackButton>
