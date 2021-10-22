@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Button, BlackButton } from "./Button.style";
+import { NormalButton } from "./Button.style";
 
 import illustration from '../images/Illustration.png';
 
@@ -18,7 +18,7 @@ class Firstfold extends React.Component {
                         <h2 id="ff_boldtext">Manage T1D the way you want </h2>
                         <h3 id="ff_heading">Type 1 Diabetes Care Directive</h3>
                         <h4 id="ff_description">A one-page document that helps you get more patient-centered care. </h4>
-                        <Button className='NButtonText'>Create Now</Button>
+                        <NormalButton className="MediumButtonText">Create Now</NormalButton>
                     </Col>
                     <Col
                     id="ff_box"

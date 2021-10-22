@@ -1,4 +1,5 @@
 import React from 'react';
+import { NormalButton } from "./Button.style";
 
 import '../styles/create_directive.css';
 
@@ -9,9 +10,7 @@ class CreateDirective extends React.Component {
                 <h2 id="call_to_action">
                     Take ownership over your care.
                 </h2>
-                <div id="create_button">
-                    Create my directive button placeholder
-                </div>
+                <NormalButton className="LargeButtonText">Create my directive</NormalButton>
             </div>
         );
     }

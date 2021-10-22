@@ -11,6 +11,13 @@
     color: #090909;
 }
 
+.MediumButtonText {
+    width: 356px;
+    height:67px;
+    font-family: 'Inter';
+    font-style: 'normal';
+}
+
 /*
     id
 */

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NormalButton } from "./Button.style";
 
 import '../styles/example.css';
 
@@ -40,8 +41,9 @@ class Example extends React.Component {
                 </div>
 
                 <div id="button">
-                    placeholder button div
+                    <NormalButton className="MediumButtonText">Look at an example!</NormalButton>
                 </div>
+
             </div>
         );
     }
