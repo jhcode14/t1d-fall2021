@@ -1,4 +1,5 @@
 import React from "react";
+import * as Survey from "survey-react";
 
 var surveyJSON = {
   title: "Tell us, what technologies do you use?",
@@ -68,19 +69,23 @@ function sendDataToServer(sender) {
 
 function Create() {
   return (
-    <head>
-      <script src="https://unpkg.com/survey-react"></script>
-      <link
-        href="https://unpkg.com/survey-react/survey.min.css"
-        type="text/css"
-        rel="stylesheet"
-      />
-    </head>
+    <React.Fragment>
+      <head>
+        <script src="https://unpkg.com/survey-react"></script>
+        <link
+          href="https://unpkg.com/survey-react/survey.min.css"
+          type="text/css"
+          rel="stylesheet"
+        />
+      </head>
+      <Survey.Survey json={surveyJSON} onComplete={sendDataToServer} />,
+      document.getElementById("surveyContainer")
+    </React.Fragment>
   );
 }
 
 export default Create;
 //ReactDOM.render(
-// <Survey.Survey json={surveyJSON} onComplete={sendDataToServer} />,
-//  document.getElementById("surveyContainer")
+// ,
+//
 //);

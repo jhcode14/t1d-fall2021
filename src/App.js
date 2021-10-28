@@ -20,6 +20,7 @@ function App() {
     <Router>
       <div>
         <nav>
+          <h2>This is temporary here for easy access to different pages</h2>
           <ul>
             <li>
               <Link to="/">Home</Link>
