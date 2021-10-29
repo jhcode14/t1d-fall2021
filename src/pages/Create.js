@@ -2,7 +2,7 @@ import React from "react";
 import * as Survey from "survey-react";
 
 var surveyJSON = {
-  title: "Tell us, what technologies do you use?",
+  title: "Type 1 Diabeties Care Directive Form Creation",
   pages: [
     {
       name: "page1",
@@ -62,7 +62,7 @@ var surveyJSON = {
 
 function sendDataToServer(sender) {
   var resultAsString = JSON.stringify(sender.data);
-  alert(resultAsString); //Send an AJAX request to your web server here...
+  alert(resultAsString);
 }
 
 <div id="surveyContainer"></div>;
@@ -85,7 +85,3 @@ function Create() {
 }
 
 export default Create;
-//ReactDOM.render(
-// ,
-//
-//);

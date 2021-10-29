@@ -3,6 +3,7 @@ import "./styles/fonts.css";
 
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// reference https://reactrouter.com/web/guides/quick-start for react-router
 
 import Navigation from "./components/Navigation.js";
 import Overview from "./components/Overview.js";
@@ -29,7 +30,7 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/create">Create</Link>
             </li>
           </ul>
         </nav>
@@ -40,8 +41,8 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/create">
+            <CreateForm />
           </Route>
           <Route path="/">
             <Landing />
@@ -67,7 +68,7 @@ function Landing() {
   );
 }
 
-function Users() {
+function CreateForm() {
   return (
     <div className="App">
       <Navigation />
@@ -78,7 +79,13 @@ function Users() {
 }
 
 function About() {
-  return <h2>Page saved for About Us</h2>;
+  return (
+    <div className="App">
+      <Navigation />
+      <h2>Page saved for About Us</h2>
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
