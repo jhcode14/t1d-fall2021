@@ -1,27 +1,32 @@
 import React from "react";
 import * as Survey from "survey-react";
 
+Survey
+    .StylesManager
+    .applyTheme("modern");
+
 var surveyJSON = {
   title: "Type 1 Diabeties Care Directive Form Creation",
+  "showProgressBar": "top",
   pages: [
     {
       name: "page1",
       questions: [
         {
-          type: "radiogroup",
-          choices: ["Yes", "No"],
-          isRequired: true,
-          name: "frameworkUsing",
-          title: "Do you use any front-end framework like Bootstrap?",
+          type: "text",
+          isRequired: false,
+          name: "Name",
+          placeHolder: "e.g. Jonney Appleseed",
+          title: "Full Name",
         },
         {
-          type: "checkbox",
-          choices: ["Bootstrap", "Foundation"],
+          type: "text",
+          inputType: "date",
           hasOther: true,
-          isRequired: true,
-          name: "framework",
-          title: "What front-end framework do you use?",
-          visibleIf: "{frameworkUsing} = 'Yes'",
+          isRequired: false,
+          name: "birthdate",
+          title: "Date of Birth",
+          autoComplete: "bdate",
         },
       ],
     },
@@ -31,7 +36,7 @@ var surveyJSON = {
         {
           type: "radiogroup",
           choices: ["Yes", "No"],
-          isRequired: true,
+          isRequired: false,
           name: "mvvmUsing",
           title: "Do you use any MVVM framework?",
         },
@@ -39,7 +44,7 @@ var surveyJSON = {
           type: "checkbox",
           choices: ["AngularJS", "KnockoutJS", "React"],
           hasOther: true,
-          isRequired: true,
+          isRequired: false,
           name: "mvvm",
           title: "What MVVM framework do you use?",
           visibleIf: "{mvvmUsing} = 'Yes'",
@@ -78,8 +83,7 @@ function Create() {
           rel="stylesheet"
         />
       </head>
-      <Survey.Survey json={surveyJSON} onComplete={sendDataToServer} />,
-      document.getElementById("surveyContainer")
+      <Survey.Survey json={surveyJSON} onComplete={sendDataToServer} />
     </React.Fragment>
   );
 }
