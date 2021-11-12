@@ -5,6 +5,10 @@ import * as Survey from "survey-react";
 
 import jsPDF from 'jspdf';
 function CreatePDF(InputList) {
+  // Font sizes
+  const normalSize = 12;
+  const titleSize = 25;
+
   // Default format
   // 216mm x 279mm for Letter
   var doc = new jsPDF({
@@ -13,9 +17,49 @@ function CreatePDF(InputList) {
       format: 'letter',
   });
   doc.setFont("times", "normal");
-  doc.setFontSize(10);
-  doc.text('Alexise Berousbrerg D.O.B 4/6/1974', 210.71, 4.23, {align: 'right'})
-  doc.text('Last updated: 8/23/2021', 210.71, 9.51, {align: 'right'})
+  doc.setFontSize(normalSize);
+
+  // 1 & 2 (non-static)
+  doc.text('Alexise Berousbrerg D.O.B 4/6/1974', 210.71, 7.23, {align: 'right'})
+  doc.text('Last updated: 8/23/2021', 210.71, 12.51, {align: 'right'})
+  
+  // 4 (non-static)
+  doc.text('Endorsed by Dr. Emily Ahn', 108, 40.12, {align: 'center'})
+
+  // 5
+  doc.text('To whom it may concern:', 23.11, 53.5);
+
+  // 6
+  const paragraph1 = "I have *Type 1 Diabetes Mellitus (INSULIN DEPENDENT)*. I require a constant delivery of insulin to live and manage my diesease. This document outlines key health information and my important wishes.";
+  const p1XStart = 23.11
+  let p1X = p1XStart
+  let p1Y = 58.05
+  var splitP1 = doc.splitTextToSize(paragraph1, 169);
+  splitP1.map((texts) => {
+    const p1LineArray = texts.split('*');
+      p1LineArray.map((text, i) => {
+        doc.setFont("times","bold");
+        if (i % 2 === 0){
+          doc.setFont("times", "normal");
+        }
+        doc.text(text, p1X, p1Y);
+        p1X = p1X + doc.getStringUnitWidth(text) * (normalSize - 7.8);
+      });
+      p1X = p1XStart;
+      p1Y = p1Y + 4.55;
+  });
+
+
+  
+   
+  
+  doc.setFont("times", "bold");
+  doc.setFontSize(titleSize);
+  // 3
+  doc.text('Type I Diabetes Care Directive', 108, 32.56, {align: 'center'});
+
+
+  // Download pdf
   doc.save('T1D_CareDirective.pdf')
 }
 
