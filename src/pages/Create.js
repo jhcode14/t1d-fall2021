@@ -9,6 +9,9 @@ function CreatePDF(InputList) {
   const normalSize = 12;
   const titleSize = 25;
 
+  // X starting distance
+  const XAlign = 23.11
+
   // Default format
   // 216mm x 279mm for Letter
   var doc = new jsPDF({
@@ -22,7 +25,7 @@ function CreatePDF(InputList) {
   // 1 & 2 (non-static)
   doc.text('Alexise Berousbrerg D.O.B 4/6/1974', 210.71, 7.23, {align: 'right'})
   doc.text('Last updated: 8/23/2021', 210.71, 12.51, {align: 'right'})
-  
+
   // 4 (non-static)
   doc.text('Endorsed by Dr. Emily Ahn', 108, 40.12, {align: 'center'})
 
@@ -31,8 +34,8 @@ function CreatePDF(InputList) {
 
   // 6
   const paragraph1 = "I have *Type 1 Diabetes Mellitus (INSULIN DEPENDENT)*. I require a constant delivery of insulin to live and manage my diesease. This document outlines key health information and my important wishes.";
-  const p1XStart = 23.11
-  let p1X = p1XStart
+  
+  let p1X = XAlign
   let p1Y = 58.05
   var splitP1 = doc.splitTextToSize(paragraph1, 169);
   splitP1.map((texts) => {
@@ -43,11 +46,43 @@ function CreatePDF(InputList) {
           doc.setFont("times", "normal");
         }
         doc.text(text, p1X, p1Y);
-        p1X = p1X + doc.getStringUnitWidth(text) * (normalSize - 7.8);
+        p1X = p1X + doc.getStringUnitWidth(text) * (normalSize - 7.75);
       });
-      p1X = p1XStart;
+      p1X = XAlign;
       p1Y = p1Y + 4.55;
   });
+
+  // 7
+  // To be changed (non-static)
+  const p2input1 = "HbA1c = 5.8%, 8/23/2021";
+  const p2input2 = "80-150mg/dl";
+  const p2input3 = "the CGM and pump";
+  const p2input4 = "my endocrinologist Dr. Emily Ahn";
+
+  // final outline
+  const paragraph2 = "My Type 1 Diabetes is well-managed (" + p2input1 + 
+                    "). Keeping my blood sugar level between " + p2input2 + 
+                    " is essential to avoid future complications. " + 
+                    "*When I am sound of mind,* I am the best person to" +
+                    " manage my diabetes. I want to retain control of my management using " + 
+                    p2input3 + ". *In other cases,* I wish " + p2input4 + " be consulted.";
+
+  let p2X = XAlign;
+  let p2Y = 79;
+  var splitP2 = doc.splitTextToSize(paragraph2, 169);
+  splitP2.map((texts) => {
+    const p2LineArray = texts.split('*');
+      p2LineArray.map((text, i) => {
+        doc.setFont("times","bold");
+        if (i % 2 === 0){
+          doc.setFont("times", "normal");
+        }
+        doc.text(text, p2X, p2Y);
+        p2X = p2X + doc.getStringUnitWidth(text) * (normalSize - 7.75);
+      });
+      p2X = XAlign;
+      p2Y = p2Y + 4.55;
+  })
 
 
   
