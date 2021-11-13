@@ -22,17 +22,24 @@ function CreatePDF(InputList) {
   doc.setFont("times", "normal");
   doc.setFontSize(normalSize);
 
-  // 1 & 2 (non-static)
+  // -----1 & 2 (non-static)----- header
   doc.text('Alexise Berousbrerg D.O.B 4/6/1974', 210.71, 7.23, {align: 'right'})
   doc.text('Last updated: 8/23/2021', 210.71, 12.51, {align: 'right'})
 
-  // 4 (non-static)
+  // -----3-----
+  doc.setFont("times", "bold");
+  doc.setFontSize(titleSize);
+  doc.text('Type I Diabetes Care Directive', 108, 32.56, {align: 'center'});
+
+  // -----4 (non-static)----- Endorsed text below title
+  doc.setFont("times", "normal");
+  doc.setFontSize(normalSize);
   doc.text('Endorsed by Dr. Emily Ahn', 108, 40.12, {align: 'center'})
 
-  // 5
+  // -----5----- Paragraph 1 starter
   doc.text('To whom it may concern:', 23.11, 53.5);
 
-  // 6
+  // -----6----- Paragraph 1
   const paragraph1 = "I have *Type 1 Diabetes Mellitus (INSULIN DEPENDENT)*. I require a constant delivery of insulin to live and manage my diesease. This document outlines key health information and my important wishes.";
   
   let p1X = XAlign
@@ -52,7 +59,7 @@ function CreatePDF(InputList) {
       p1Y = p1Y + 4.55;
   });
 
-  // 7
+  // -----7----- Paragraph 2
   // To be changed (non-static)
   const p2input1 = "HbA1c = 5.8%, 8/23/2021";
   const p2input2 = "80-150mg/dl";
@@ -82,16 +89,98 @@ function CreatePDF(InputList) {
       });
       p2X = XAlign;
       p2Y = p2Y + 4.55;
-  })
+  });
 
+  // -----8----- splitting line 1
+  doc.line(XAlign, 100, 216-XAlign, 100);
 
+  // -----9.1----- Diabeties Management (left)
+  doc.setFont("times","bold");
+  doc.text("Diabetes Management", XAlign, 109.45);
+
+  doc.setFont("times","normal");
+  let dbY = 114.1;
+
+  // dmArray to be replaced with input array
+  const dmArray = ["Blood Glucose monitoring: Dexcom G6 CGM that measures my blood sugar every 5 minutes.",
+    "Insulin administration/pump: Omnipod",
+    "Software: Nightscout that gives access to real time blood sugar."]
+  dmArray.map((text) => {
+    text = '  \u2022  ' + text;
+    var dmSplit = doc.splitTextToSize(text, 80) ;
+      dmSplit.map((line, i) =>{
+        if (i !== 0){
+          line = '  ' + line;
+        }
+        doc.text(line, XAlign, dbY);
+        dbY = dbY + 4.55;
+      });
+
+  });
+
+  // -----9.2----- Insulin Dosing (right)
+  let idY = 114.1;
+  const idX = 111.63
+
+  doc.setFont("times","bold");
+  doc.text("Insulin Dosing", idX, 109.45);
+
+  doc.setFont("times","normal");
   
-   
-  
+
+  // idArray to be replaced with input array
+  const idArray = ["Insulin type: Lispro",
+    "Basal Insulin rate: 0.8 - 1.0 U/h", 
+    "Insulin to carbohydrate ratio: 1 units to 15 g",
+    "Insulin sensitivity factor:  1 unit of insulin decrease bg by 35 mg/dL"];
+  idArray.map((text) => {
+    text = '  \u2022  ' + text;
+    var idSplit = doc.splitTextToSize(text, 85);
+      idSplit.map((line, i) =>{
+        if (i !== 0){
+          line = '  ' + line;
+        }
+        doc.text(line, idX, idY);
+        idY = idY + 4.55;
+      });
+
+  });
+
+  // -----10----- splitting line 2
+  doc.line(XAlign, 143.65, 216-XAlign, 143.65);
+  // -----11----- Contacts
   doc.setFont("times", "bold");
-  doc.setFontSize(titleSize);
-  // 3
-  doc.text('Type I Diabetes Care Directive', 108, 32.56, {align: 'center'});
+  doc.text("Contacts", XAlign, 152.75)
+
+  // const to be changed by data input
+  const cInput1 = "my Endocrinologist Dr. Ahn or Diabetes Advocate Mr.Do";
+
+  const cChecklist = ["Remove my Dexcom/Ominipod device", "Change settings of my devices", "Put steroid on glucose in IV."]
+  
+  const cText = "Please contact " + cInput1 + " if the following decisions are to be made: "
+
+  var cSplit = doc.splitTextToSize(cText, 169);
+  doc.text(cSplit, XAlign, 159.3);
+
+  var cY = 161.5;
+  var boxSize = 5;
+  // Checkbox + text
+  cChecklist.map((text) => {
+    doc.line(XAlign, cY, XAlign+boxSize, cY+boxSize);
+
+    
+  });
+
+  // -----12.1----- box1 (left)
+
+  // -----12.2----- box2 (right)
+
+  // -----13----- user info footer
+
+
+  
+  
+  // -----14----- page 2: additional info
 
 
   // Download pdf
