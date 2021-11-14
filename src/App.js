@@ -8,17 +8,23 @@ import Why from './components/Why.js';
 import Example from './components/Example.js';
 import CreationGIF from './components/CreationGIF.js';
 import CreateDirective from './components/CreateDirective.js';
+import Footer from './components/Footer.js';
+import DemoSurvey from './components/DemoSurvey.js';
 
 function App() {
   return (
     <div className="App">
     
       <Navigation />
+
+      <DemoSurvey />
+
       <Overview />
       <Why />
       <Example />
       <CreationGIF />
       <CreateDirective />
+      <Footer />
 
     </div>
   );
