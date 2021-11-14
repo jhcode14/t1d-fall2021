@@ -1,30 +1,61 @@
 import React from "react";
 import * as Survey from "survey-react";
-//import CreatePDF from "./CreateDoc.js";
-
 
 import jsPDF from 'jspdf';
+
+/*
+    Unit conversion sample:
+    final form: 476.77px x 617px
+    jspdf: 216mm x 279mm
+    (Ratio is exactly the same)
+
+    Header:
+    align top: 9.35px/617px * 279mm = 4.23mm
+    align right: 216mm - (476.77px - 286.69px - 178.4px)/476.77px * 216mm = 210.71mm
+    text size: 10.13px/476.77px * 216mm = 4.58938mm
+*/
 function CreatePDF(InputList) {
+  // Default format
+  // Assuming 216mm x 279mm for Letter
+  var doc = new jsPDF({
+    orientation: 'p',
+    unit: 'mm',
+    format: 'letter',
+  });
+
   // Font sizes
   const normalSize = 12;
   const titleSize = 25;
 
   // X starting distance
-  const XAlign = 23.11
+  const XAlign = 23.11;
+  // Page height
+  const YMaxHeight = 279;
 
-  // Default format
-  // 216mm x 279mm for Letter
-  var doc = new jsPDF({
-      orientation: 'p',
-      unit: 'mm',
-      format: 'letter',
-  });
+  
   doc.setFont("times", "normal");
   doc.setFontSize(normalSize);
 
-  // -----1 & 2 (non-static)----- header
-  doc.text('Alexise Berousbrerg D.O.B 4/6/1974', 210.71, 7.23, {align: 'right'})
-  doc.text('Last updated: 8/23/2021', 210.71, 12.51, {align: 'right'})
+  // -----HEADER----- (1)
+  const headerLineX = 210.71;
+  const headerL1Y = 7.23;
+  const headerL2Y = 12.51;
+
+  const headerLine1 = 'Alexise Berousbrerg D.O.B 4/6/1974';
+  const headerLine2 = 'Last updated: 8/23/2021';
+  doc.text(headerLine1, headerLineX, headerL1Y, {align: 'right'})
+  doc.text(headerLine2, headerLineX, headerL2Y, {align: 'right'})
+
+  // -----FOOTER----- (2)
+  const footerNameY = 279 - 20;
+  const footerUpdateY = 279 - 15;
+
+  // to be changed
+  const footerName = "Alexise Berousbreg";
+  const footerUpdate = "Last updated: " + "8/23/2021";
+  
+  doc.text(footerName, XAlign, footerNameY);
+  doc.text(footerUpdate, XAlign, footerUpdateY);
 
   // -----3-----
   doc.setFont("times", "bold");
@@ -162,25 +193,64 @@ function CreatePDF(InputList) {
   var cSplit = doc.splitTextToSize(cText, 169);
   doc.text(cSplit, XAlign, 159.3);
 
-  var cY = 161.5;
-  var boxSize = 5;
-  // Checkbox + text
-  cChecklist.map((text) => {
-    doc.line(XAlign, cY, XAlign+boxSize, cY+boxSize);
+  var cY = 167.5;
+  var boxSize = 6;
 
-    
+  // Checkbox + text
+  doc.setFont("times","normal");
+
+  cChecklist.map((text) => {
+    doc.line(XAlign, cY, XAlign+boxSize, cY);
+    doc.line(XAlign, cY, XAlign, cY+boxSize);
+    doc.line(XAlign+boxSize, cY, XAlign+boxSize, cY+boxSize);
+    doc.line(XAlign, cY+boxSize, XAlign+boxSize, cY+boxSize);
+    const cX = XAlign + boxSize + 3;
+    const cYText = cY + 4.2;
+    doc.text(text, cX, cYText); 
+
+    cY = cY + 2 + boxSize;
+
+    // if exceed first page, go on next page
+    if (cY >= YMaxHeight - 25){
+      doc.addPage();
+      cY = 25; // restart height position
+
+      // ADD HEADER/FOOTER to PAGE 2
+      doc.text(headerLine1, headerLineX, headerL1Y, {align: 'right'})
+      doc.text(headerLine2, headerLineX, headerL2Y, {align: 'right'})
+      doc.text(footerName, XAlign, footerNameY);
+      doc.text(footerUpdate, XAlign, footerUpdateY);
+    };
   });
 
+  // -----12-----
+  var boxY = cY;
+  const boxXSize = 80;
+  const boxYSize = 45;
+  if (boxY+70 >= YMaxHeight - 25){
+    doc.addPage();
+    boxY = 25;
+
+    // ADD HEADER/FOOTER to PAGE 2
+    doc.text(headerLine1, headerLineX, headerL1Y, {align: 'right'})
+    doc.text(headerLine2, headerLineX, headerL2Y, {align: 'right'})
+    doc.text(footerName, XAlign, footerNameY);
+    doc.text(footerUpdate, XAlign, footerUpdateY);
+  }
   // -----12.1----- box1 (left)
-
+  doc.line(XAlign, boxY, XAlign + boxXSize, boxY);
+  doc.line(XAlign, boxY + boxYSize, XAlign + boxXSize, boxY + boxYSize);
+  doc.line(XAlign, boxY, XAlign, boxY+ boxYSize);
+  doc.line(XAlign + boxXSize, boxY, XAlign + boxXSize, boxY+ boxYSize);
   // -----12.2----- box2 (right)
+  const box2XAlign = XAlign + 85;
 
-  // -----13----- user info footer
-
-
+  doc.line(box2XAlign, boxY, box2XAlign + boxXSize, boxY);
+  doc.line(box2XAlign, boxY + boxYSize, box2XAlign + boxXSize, boxY + boxYSize);
+  doc.line(box2XAlign, boxY, box2XAlign, boxY+ boxYSize);
+  doc.line(box2XAlign + boxXSize, boxY, box2XAlign + boxXSize, boxY+ boxYSize);
   
-  
-  // -----14----- page 2: additional info
+  // -----13----- page 2: additional info
 
 
   // Download pdf
