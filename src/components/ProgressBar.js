@@ -1,7 +1,6 @@
 import '../styles/fonts.css';
 
 import React from "react";
-import PropTypes from 'prop-types';
 import Styled from 'styled-components';
 
 const Container = Styled.div `
@@ -29,26 +28,27 @@ const Container = Styled.div `
     }
 `;
 
-const ProgressBar  = ({value, max, color, width}) => {
-    return(
-        <Container color = {color} width  = {width}>
-            <progress value = {value} max = {max}></progress>
-            <span>{value/max * 100}%</span>
-        </Container>
-    )
-}
 
-ProgressBar.propTypes = {
-    value: PropTypes.number.isRequired,
-    max: PropTypes.number,
-    color: PropTypes.string,
-    width: PropTypes.string
-}
+class ProgressBar extends React.Component {
+    constructor(props) {
+        super(props);
 
-ProgressBar.defaultProps = {
-    max: 100,
-    color: "lightBlue",
-    width: "250px"
+        this.state = {
+            value: 0,
+            max: 100,
+            color: 'blue',
+            width: '250px'
+        }
+    }
+
+    render() {
+        return (
+            <Container color = {this.color} width  = {this.width}>
+                <progress value = {this.value} max = {this.max}></progress>
+                <span>{this.value/this.max * 100}%</span>
+            </Container>
+        )
+    }
 }
 
 export default ProgressBar;
