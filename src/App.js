@@ -15,6 +15,7 @@ import Footer from "./components/Footer.js";
 import Firstfold from "./components/Firstfold.js";
 
 import Create from "./pages/Create.js";
+import SurveyNavigation from "./components/SurveyNavigation";
 
 function App() {
   return (
@@ -71,7 +72,7 @@ function Landing() {
 function CreateForm() {
   return (
     <div className="App">
-      <Navigation />
+      <SurveyNavigation />
       <Create />
       <Footer />
     </div>
