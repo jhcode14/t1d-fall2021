@@ -1,6 +1,6 @@
-#nav_spacing{
-    display: flex;
-    border-bottom: 1px solid black;
+#nav_spacing {
+  display: flex;
+  /* border-bottom: 1px solid black;*/
 }
 
 /*
@@ -8,10 +8,22 @@
 */
 
 .NButtonText {
-    margin: 25px 12px;
-    font-family: 'Inter';
-    font-style: 'normal';
-    padding: 12px 24px;
+  margin: 25px 12px;
+  font-family: "Inter";
+  font-style: "normal";
+  padding: 12px 24px;
+}
+
+.BlackNButtonText {
+  margin: 25px 12px;
+  font-family: "Inter";
+  font-style: "normal";
+  padding: 12px 24px;
+}
+
+.navLogo {
+  width: 400px;
+  height: 100px;
 }
 
 /*
@@ -19,15 +31,27 @@
 */
 
 #Ngrid {
-    display: flex;
-    margin-left: 1.09%;
-    margin-right: 75px;
-    width: 100%;
+  display: flex;
+  margin-left: 1.09%;
+  margin-right: 75px;
+  width: 100%;
 }
 
 #Nlogo {
-    /* this needs to later on be adjusted based on screen width */
-    width: 90%;
-    display: inline-flex;
+  /* this needs to later on be adjusted based on screen width */
+  width: 90%;
+  display: inline-flex;
 }
 
+@media (max-width: 500px) {
+  .BlackNButtonText {
+    display: none;
+  }
+
+  #Ngrid {
+    display: flex;
+    margin-left: 0px;
+    margin-right: 75px;
+    width: 100%;
+  }
+}
