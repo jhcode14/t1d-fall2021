@@ -16,6 +16,7 @@ import Firstfold from "./components/Firstfold.js";
 
 import Create from "./pages/Create.js";
 import SurveyNavigation from "./components/SurveyNavigation";
+import JSurveyDemo from "./components/JSurveyDemo";
 
 function App() {
   return (
@@ -73,8 +74,8 @@ function CreateForm() {
   return (
     <div className="App">
       <SurveyNavigation />
+      <JSurveyDemo />
       <Create />
-      <Footer />
     </div>
   );
 }
