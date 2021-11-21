@@ -1,5 +1,66 @@
-#container {
+#progressContainer {
+    width: 100%;
+    height: 230px;
+    background-color: #374151;
+}
+
+#surveyContainer {
     margin: auto;
+    padding: 10px;
     background-color: aquamarine;
     width: 550pt;
+}
+
+/*
+    classes
+*/
+
+.progressTitle {
+    font-family: 'Inter';
+    font-style: 'normal';
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 42px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.progressText {
+    font-family: 'Inter';
+    font-style: 'normal';
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 22.5px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.surveyTitle {
+    font-family: 'Inter';
+    font-style: 'normal';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29.05px;
+    color: #000000;
+    text-align: left;
+}
+
+.surveyText {
+    font-family: 'Inter';
+    font-style: 'normal';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: #000000;
+    text-align: left;
+}
+
+.additionalInfoTitle {
+    font-family: 'Inter';
+    font-style: 'normal';
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 33px;
+    color: #000000;
+    text-align: left;
 }
