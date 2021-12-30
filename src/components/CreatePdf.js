@@ -269,7 +269,7 @@ function CreatePDF(InputList) {
   doc.save("T1D_CareDirective.pdf");
 }
 
-function Create() {
+function CreatePdf() {
   return (
     <React.Fragment>
       <div>
@@ -281,4 +281,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default CreatePdf;

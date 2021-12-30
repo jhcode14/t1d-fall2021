@@ -14,7 +14,7 @@ import CreateDirective from "./components/CreateDirective.js";
 import Footer from "./components/Footer.js";
 import Firstfold from "./components/Firstfold.js";
 
-import Create from "./pages/Create.js";
+import Create from "./components/CreatePdf.js";
 import SurveyNavigation from "./components/SurveyNavigation";
 //import JProgressDemo from "./components/JProgressDemo";
 import JSurveyDemo from "./components/JSurveyDemo.jsx";
