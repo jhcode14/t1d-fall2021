@@ -16,8 +16,8 @@ import Firstfold from "./components/Firstfold.js";
 
 import Create from "./pages/Create.js";
 import SurveyNavigation from "./components/SurveyNavigation";
-import JProgressDemo from "./components/JProgressDemo";
-import JSurveyDemo from "./components/JSurveyDemo";
+//import JProgressDemo from "./components/JProgressDemo";
+import JSurveyDemo from "./components/JSurveyDemo.jsx";
 
 function App() {
   return (
@@ -75,7 +75,6 @@ function CreateForm() {
   return (
     <div className="App">
       <SurveyNavigation />
-      <JProgressDemo />
       <JSurveyDemo />
       <Create />
     </div>
