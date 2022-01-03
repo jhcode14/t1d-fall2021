@@ -1,4 +1,5 @@
 import "./App.css";
+import "antd/dist/antd.css";
 import "./styles/fonts.css";
 
 import React from "react";
