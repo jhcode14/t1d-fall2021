@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { Container } from "react-bootstrap";
 import { Button, Row, Col, Input, DatePicker, Radio } from "antd";
 import { AiOutlineSearch } from "react-icons/ai";
 import Download from "./CreatePdf.js";
@@ -22,12 +21,11 @@ const data = {
 };
 
 function Questionaries(key) {
-  async function onChange(target, newString) {
-    data[target] = newString;
+  function onChange(target, text) {
+    data[target] = text.target.value;
   }
 
   const paneKey = key.number;
-  console.log(paneKey);
   let display;
   if (paneKey === 1) {
     display = (
@@ -45,19 +43,39 @@ function Questionaries(key) {
           <Input
             placeholder="eg. Johnny Appleseed"
             defaultValue={data.name}
-            onChange={(e) => onChange("name", e)}
+            onChange={(text, _) => {
+              onChange("name", text);
+            }}
           />
           <div>Date of Birth</div>
 
           <Row gutter={8}>
             <Col span={6}>
-              <Input placeholder="Month" defaultValue={data.dobM} />
+              <Input
+                placeholder="Month"
+                defaultValue={data.dobM}
+                onChange={(text, _) => {
+                  onChange("dobM", text);
+                }}
+              />
             </Col>
             <Col span={4}>
-              <Input placeholder="Day" defaultValue={data.dobD} />
+              <Input
+                placeholder="Day"
+                defaultValue={data.dobD}
+                onChange={(text, _) => {
+                  onChange("dobD", text);
+                }}
+              />
             </Col>
             <Col span={4}>
-              <Input placeholder="Year" defaultValue={data.dobY} />
+              <Input
+                placeholder="Year"
+                defaultValue={data.dobY}
+                onChange={(text, _) => {
+                  onChange("dobY", text);
+                }}
+              />
             </Col>
           </Row>
         </Col>
@@ -78,7 +96,7 @@ function Questionaries(key) {
           </span>
         </Row>
         <Row>
-          <Col span={12}>
+          <Col span={11}>
             <div>To administer insulin, I use:</div>
             <div className={styles["round-border"]}>
               <div>Insulin Pen Brand</div>
@@ -89,7 +107,10 @@ function Questionaries(key) {
               <Input prefix={<AiOutlineSearch />}></Input>
             </div>
           </Col>
-          <Col span={12}>
+          <Col span={2}>
+            <div className={styles["p2-divider"]}></div>
+          </Col>
+          <Col span={11}>
             <div>To monitor my glucose levels, I use:</div>
             <div className={styles["round-border"]}>
               <div>Continuous Glucose Monitor (Brand)</div>
@@ -132,7 +153,6 @@ function Questionaries(key) {
 
 function ProgressBar(key) {
   const paneKey = key.number;
-  console.log(paneKey);
   let display;
   if (paneKey === 1) {
     display = (
