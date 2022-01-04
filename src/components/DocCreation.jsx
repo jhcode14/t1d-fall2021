@@ -10,7 +10,16 @@ import styles from "./DemoCreation.module.css";
 //       show different pane
 //       customize different pane
 
-const data = {};
+const data = {
+  name: "",
+  dobY: "",
+  dobM: "",
+  dobD: "",
+  insulinPen: "",
+  insulinPuml: "",
+  cgm: "",
+  cgmSoftware: "",
+};
 
 function Questionaries(key) {
   const paneKey = key.number;
@@ -18,33 +27,33 @@ function Questionaries(key) {
   let display;
   if (paneKey === 1) {
     display = (
-      <div>
-        <div className={styles.surveyTitle}>About You</div>
-        <span className={styles.surveyText}>
-          Include your standard information for identification purposes and
-          HbA1c such that healthcare personnel can understand your diabetes
-          management better. <p style={{ color: "red" }}>* Required</p>
-        </span>
-        <div>
-          <Col span={12} offset={6}>
-            <div>Full Name</div>
-            <Input placeholder="eg. Johnny Appleseed" />
-            <div>Date of Birth</div>
+      <Row>
+        <Col span={24}>
+          <div className={styles.surveyTitle}>About You</div>
+          <span className={styles.surveyText}>
+            Include your standard information for identification purposes and
+            HbA1c such that healthcare personnel can understand your diabetes
+            management better. <p style={{ color: "red" }}>* Required</p>
+          </span>
+        </Col>
+        <Col span={12} offset={6}>
+          <div>Full Name</div>
+          <Input placeholder="eg. Johnny Appleseed" />
+          <div>Date of Birth</div>
 
-            <Row gutter={8}>
-              <Col span={6}>
-                <Input placeholder="Month" />
-              </Col>
-              <Col span={4}>
-                <Input placeholder="Day" />
-              </Col>
-              <Col span={4}>
-                <Input placeholder="Year" />
-              </Col>
-            </Row>
-          </Col>
-        </div>
-      </div>
+          <Row gutter={8}>
+            <Col span={6}>
+              <Input placeholder="Month" />
+            </Col>
+            <Col span={4}>
+              <Input placeholder="Day" />
+            </Col>
+            <Col span={4}>
+              <Input placeholder="Year" />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
     );
   } else if (paneKey === 2) {
     display = (
