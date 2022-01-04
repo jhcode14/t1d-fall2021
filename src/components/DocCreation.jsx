@@ -16,7 +16,7 @@ const data = {
   dobM: "",
   dobD: "",
   insulinPen: "",
-  insulinPuml: "",
+  insulinPump: "",
   cgm: "",
   cgmSoftware: "",
 };
@@ -38,18 +38,18 @@ function Questionaries(key) {
         </Col>
         <Col span={12} offset={6}>
           <div>Full Name</div>
-          <Input placeholder="eg. Johnny Appleseed" />
+          <Input placeholder="eg. Johnny Appleseed" defaultValue={data.name} />
           <div>Date of Birth</div>
 
           <Row gutter={8}>
             <Col span={6}>
-              <Input placeholder="Month" />
+              <Input placeholder="Month" defaultValue={data.dobM} />
             </Col>
             <Col span={4}>
-              <Input placeholder="Day" />
+              <Input placeholder="Day" defaultValue={data.dobD} />
             </Col>
             <Col span={4}>
-              <Input placeholder="Year" />
+              <Input placeholder="Year" defaultValue={data.dobY} />
             </Col>
           </Row>
         </Col>
@@ -122,17 +122,64 @@ function Questionaries(key) {
   return display;
 }
 
-function progressBar(key) {
+function ProgressBar(key) {
   const paneKey = key.number;
   console.log(paneKey);
   let display;
   if (paneKey === 1) {
+    display = (
+      <div>
+        <div className={styles.progress}>
+          <div className={styles["progress-bar1"]}></div>
+        </div>
+      </div>
+    );
   } else if (paneKey === 2) {
+    display = (
+      <div>
+        <div className={styles.progress}>
+          <div className={styles["progress-bar2"]}></div>
+        </div>
+      </div>
+    );
   } else if (paneKey === 3) {
+    display = (
+      <div>
+        <div className={styles.progress}>
+          <div className={styles["progress-bar3"]}></div>
+        </div>
+      </div>
+    );
   } else if (paneKey === 4) {
+    display = (
+      <div>
+        <div className={styles.progress}>
+          <div className={styles["progress-bar4"]}></div>
+        </div>
+      </div>
+    );
   } else if (paneKey === 5) {
+    display = (
+      <div>
+        <div className={styles.progress}>
+          <div className={styles["progress-bar5"]}></div>
+        </div>
+      </div>
+    );
   } else if (paneKey === 6) {
+    display = (
+      <div>
+        <div className={styles.progress}>
+          <div className={styles["progress-bar6"]}></div>
+        </div>
+      </div>
+    );
   } else if (paneKey === 7) {
+    display = (
+      <div>
+        <div className={styles.progressText}>Form Completion</div>
+      </div>
+    );
   } else {
     console.error(`invalid activePane input ${paneKey}`);
   }
@@ -158,9 +205,12 @@ function DocCreation() {
   return (
     <div>
       <Row className={styles.progressContainer}>
-        <div className={styles.progressTitle}>
-          Type 1 Diabetes Care Directive
-        </div>
+        <Col span={24}>
+          <div className={styles.progressTitle}>
+            Type 1 Diabetes Care Directive
+          </div>
+          <ProgressBar number={activePane} />
+        </Col>
       </Row>
       <Row>
         <Col span={12} offset={6}>

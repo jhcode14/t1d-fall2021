@@ -1,8 +1,4 @@
-.progressContainer {
-  width: 100%;
-  height: 230px;
-  background-color: #374151;
-}
+/*text*/
 
 .progressTitle {
   font-family: "Inter";
@@ -53,6 +49,59 @@
   line-height: 33px;
   color: #000000;
   text-align: left;
+}
+
+/*others*/
+
+.progressContainer {
+  width: 100%;
+  height: 230px;
+  background-color: #374151;
+}
+
+.progress {
+  width: 100%;
+  max-width: 852px;
+  height: 14px;
+  background: white;
+
+  margin: 50px auto;
+}
+
+.progress-bar1 {
+  height: 100%;
+  width: 14%;
+  background-color: #5048e5;
+}
+
+.progress-bar2 {
+  height: 100%;
+  width: 28%;
+  background-color: #5048e5;
+}
+
+.progress-bar3 {
+  height: 100%;
+  width: 42%;
+  background-color: #5048e5;
+}
+
+.progress-bar4 {
+  height: 100%;
+  width: 56%;
+  background-color: #5048e5;
+}
+
+.progress-bar5 {
+  height: 100%;
+  width: 70%;
+  background-color: #5048e5;
+}
+
+.progress-bar6 {
+  height: 100%;
+  width: 84%;
+  background-color: #5048e5;
 }
 
 .paneChangeButtons {
