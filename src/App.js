@@ -15,10 +15,8 @@ import CreateDirective from "./components/CreateDirective.js";
 import Footer from "./components/Footer.js";
 import Firstfold from "./components/Firstfold.js";
 
-import Create from "./components/CreatePdf.js";
 import SurveyNavigation from "./components/SurveyNavigation";
-//import JProgressDemo from "./components/JProgressDemo";
-import JSurveyDemo from "./components/JSurveyDemo.jsx";
+import DocCreation from "./components/DocCreation.jsx";
 
 function App() {
   return (
@@ -76,8 +74,7 @@ function CreateForm() {
   return (
     <div className="App">
       <SurveyNavigation />
-      <JSurveyDemo />
-      <Create />
+      <DocCreation />
     </div>
   );
 }
