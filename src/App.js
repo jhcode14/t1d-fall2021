@@ -22,21 +22,6 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <h2>This is temporary here for easy access to different pages</h2>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
-          </ul>
-        </nav>
-
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
