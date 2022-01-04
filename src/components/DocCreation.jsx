@@ -22,6 +22,10 @@ const data = {
 };
 
 function Questionaries(key) {
+  async function onChange(target, newString) {
+    data[target] = newString;
+  }
+
   const paneKey = key.number;
   console.log(paneKey);
   let display;
@@ -36,9 +40,13 @@ function Questionaries(key) {
             management better. <p style={{ color: "red" }}>* Required</p>
           </span>
         </Col>
-        <Col span={12} offset={6}>
+        <Col span={12} offset={6} className={styles["shadow-border"]}>
           <div>Full Name</div>
-          <Input placeholder="eg. Johnny Appleseed" defaultValue={data.name} />
+          <Input
+            placeholder="eg. Johnny Appleseed"
+            defaultValue={data.name}
+            onChange={(e) => onChange("name", e)}
+          />
           <div>Date of Birth</div>
 
           <Row gutter={8}>
@@ -72,22 +80,22 @@ function Questionaries(key) {
         <Row>
           <Col span={12}>
             <div>To administer insulin, I use:</div>
-            <div>
+            <div className={styles["round-border"]}>
               <div>Insulin Pen Brand</div>
               <Input prefix={<AiOutlineSearch />}></Input>
             </div>
-            <div>
+            <div className={styles["round-border"]}>
               <div>Insulin Pump Brand</div>
               <Input prefix={<AiOutlineSearch />}></Input>
             </div>
           </Col>
           <Col span={12}>
             <div>To monitor my glucose levels, I use:</div>
-            <div>
+            <div className={styles["round-border"]}>
               <div>Continuous Glucose Monitor (Brand)</div>
               <Input prefix={<AiOutlineSearch />}></Input>
             </div>
-            <div>
+            <div className={styles["round-border"]}>
               <div>Software</div>
               <Input prefix={<AiOutlineSearch />}></Input>
             </div>

@@ -107,3 +107,22 @@
 .paneChangeButtons {
   flex-direction: row;
 }
+
+.shadow-border {
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 23px 28px;
+
+  background: #ffffff;
+  box-shadow: 0px 10px 15px rgba(31, 41, 55, 0.1),
+    0px 0px 6px rgba(31, 41, 55, 0.05);
+}
+
+.round-border {
+  align-items: flex-start;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
