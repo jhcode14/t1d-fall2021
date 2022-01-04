@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import { Button, Row, Col, Input, DatePicker, Radio } from "antd";
+import { AiOutlineSearch } from "react-icons/ai";
 import "../styles/survey_demo.css";
 
 // ToDo: disable next/previous button when page 1 or 7
@@ -16,43 +17,61 @@ function Questionaries(key) {
   let display;
   if (paneKey === 1) {
     display = (
-      <Row gutter={8}>
+      <div>
+        <div>About You</div>
+        <span>
+          Include your standard information for identification purposes and
+          HbA1c such that healthcare personnel can understand your diabetes
+          management better. <p style={{ color: "red" }}>* Required</p>
+        </span>
+        <div>
+          <Col span={12} offset={6}>
+            <div>Full Name</div>
+            <Input placeholder="eg. Johnny Appleseed" />
+            <div>Date of Birth</div>
+
+            <Row gutter={8}>
+              <Col span={6}>
+                <Input placeholder="Month" />
+              </Col>
+              <Col span={4}>
+                <Input placeholder="Day" />
+              </Col>
+              <Col span={4}>
+                <Input placeholder="Year" />
+              </Col>
+            </Row>
+          </Col>
+        </div>
+      </div>
+    );
+  } else if (paneKey === 2) {
+    display = (
+      <Row>
         <Col span={12}>
-          <div>Full Name</div>
-          <Input placeholder="eg. Johnny Appleseed" />
-          <div>Date of Birth</div>
-          <Row gutter={8}>
-            <Col span={6}>
-              <Input placeholder="Month" />
-            </Col>
-            <Col span={4}>
-              <Input placeholder="Day" />
-            </Col>
-            <Col span={4}>
-              <Input placeholder="Year" />
-            </Col>
-          </Row>
+          <div>To administer insulin, I use:</div>
+          <div>
+            <div>Insulin Pen Brand</div>
+            <Input prefix={<AiOutlineSearch />}></Input>
+          </div>
+          <div>
+            <div>Insulin Pump Brand</div>
+            <Input prefix={<AiOutlineSearch />}></Input>
+          </div>
         </Col>
         <Col span={12}>
-          <div>What is your current HbA1c?</div>
-          <Row>
-            <Col span={8}>
-              <Input placeholder="HbA1c" />
-            </Col>
-            <Col span={16}>
-              <Radio.Group defaultValue="a" buttonStyle="solid">
-                <Radio.Button value="a">mmol/mol</Radio.Button>
-                <Radio.Button value="b">Percentage(%)</Radio.Button>
-              </Radio.Group>
-            </Col>
-          </Row>
-          <div>Date Recorded</div>
-          <DatePicker />
+          <div>To monitor my glucose levels, I use:</div>
+          <div>
+            <div>Continuous Glucose Monitor (Brand)</div>
+            <Input prefix={<AiOutlineSearch />}></Input>
+          </div>
+          <div>
+            <div>Software</div>
+            <Input prefix={<AiOutlineSearch />}></Input>
+          </div>
         </Col>
       </Row>
     );
-  } else if (paneKey === 2) {
-    display = <div>2</div>;
   } else if (paneKey === 3) {
     display = <div>3</div>;
   } else if (paneKey === 4) {
