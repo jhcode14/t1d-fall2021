@@ -18,6 +18,10 @@ const data = {
   insulinPump: "",
   cgm: "",
   cgmSoftware: "",
+  hba1c: "",
+  ladose: "",
+  avgInsToCarb: "",
+  isf: "",
 };
 
 function Questionaries(key) {
@@ -125,7 +129,71 @@ function Questionaries(key) {
       </div>
     );
   } else if (paneKey === 3) {
-    display = <div>3</div>;
+    display = (
+      <div>
+        <Row>
+          <div className={styles.surveyTitle}>Insulin Dosing</div>
+          <span className={styles.surveyText}>
+            Include your insulin dosing information for healthcare providers in
+            case of an emergency or when you do not have a clear mind.
+            Additional information can be added at the end of this creation
+            process.
+            <p style={{ color: "red" }}>* Required</p>
+          </span>
+        </Row>
+        <Row>
+          <Col span={11}>
+            <div>Rapid-Acting Insulin I use : </div>
+          </Col>
+          <Col span={2}></Col>
+          <Col span={11}>
+            <div>Long-Acting Insulin I use : </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={11}>
+            <div>What is your most recent HbA1c ?</div>
+            <Input
+              placeholder="HbA1c"
+              defaultValue={data.hba1c}
+              onChange={(text, _) => {
+                onChange("hba1c", text);
+              }}
+              addonAfter="%"
+            />
+            <div>My typical daily long acting insulin dose :</div>
+            <Input
+              placeholder="Value"
+              defaultValue={data.ladose}
+              onChange={(text, _) => {
+                onChange("ladose", text);
+              }}
+              addonAfter="U per day"
+            />
+            <div>My average Insulin to carbohydrate ratio :</div>
+            <Input
+              placeholder="Value"
+              defaultValue={data.avgInsToCarb}
+              onChange={(text, _) => {
+                onChange("avgInsToCarb", text);
+              }}
+              addonBefore="1 unit to "
+              addonAfter="g"
+            />
+            <div>My insulin sensitivity factor (ISF) :</div>
+            <Input
+              placeholder="Value"
+              defaultValue={data.isf}
+              onChange={(text, _) => {
+                onChange("isf", text);
+              }}
+              addonBefore="1 unit of insulin decrease blood glucose by"
+              addonAfter="mg/dL"
+            />
+          </Col>
+        </Row>
+      </div>
+    );
   } else if (paneKey === 4) {
     display = <div>4</div>;
   } else if (paneKey === 5) {
