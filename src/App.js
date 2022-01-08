@@ -1,4 +1,5 @@
 import "./App.css";
+import "antd/dist/antd.css";
 import "./styles/fonts.css";
 
 import React from "react";
@@ -14,28 +15,13 @@ import CreateDirective from "./components/CreateDirective.js";
 import Footer from "./components/Footer.js";
 import Firstfold from "./components/Firstfold.js";
 
-import Create from "./pages/Create.js";
 import SurveyNavigation from "./components/SurveyNavigation";
+import DocCreation from "./components/DocCreation.jsx";
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
-          <h2>This is temporary here for easy access to different pages</h2>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/create">Create</Link>
-            </li>
-          </ul>
-        </nav>
-
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -73,8 +59,7 @@ function CreateForm() {
   return (
     <div className="App">
       <SurveyNavigation />
-      <Create />
-      <Footer />
+      <DocCreation />
     </div>
   );
 }

@@ -1,0 +1,163 @@
+/*text*/
+
+.progressTitle {
+  font-family: "Inter";
+  font-style: "normal";
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 42px;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+}
+
+.progressText {
+  font-family: "Inter";
+  font-style: "normal";
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22.5px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.surveyTitle {
+  font-family: "Inter";
+  font-style: "normal";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29.05px;
+  color: #000000;
+  text-align: left;
+}
+
+.surveyText {
+  font-family: "Inter";
+  font-style: "normal";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  color: #000000;
+  text-align: left;
+}
+
+.additionalInfoTitle {
+  font-family: "Inter";
+  font-style: "normal";
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  color: #000000;
+  text-align: left;
+}
+
+/*others*/
+
+.progressContainer {
+  width: 100%;
+  height: 230px;
+  background-color: #374151;
+}
+
+.progress {
+  width: 100%;
+  max-width: 852px;
+  height: 14px;
+  background: white;
+
+  margin: 50px auto;
+}
+
+.progress-bar1 {
+  height: 100%;
+  width: 9%;
+  background-color: #5048e5;
+}
+
+.progress-bar2 {
+  height: 100%;
+  width: 25%;
+  background-color: #5048e5;
+}
+
+.progress-bar3 {
+  height: 100%;
+  width: 45%;
+  background-color: #5048e5;
+}
+
+.progress-bar4 {
+  height: 100%;
+  width: 61%;
+  background-color: #5048e5;
+}
+
+.progress-bar5 {
+  height: 100%;
+  width: 75%;
+  background-color: #5048e5;
+}
+
+.progress-bar6 {
+  height: 100%;
+  width: 90%;
+  background-color: #5048e5;
+}
+
+.progress-tab-active {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  margin: 0px 10px;
+
+  border-radius: 10px;
+  padding: 6px 12px;
+
+  color: white;
+  background-color: #5048e5;
+}
+
+.progress-tab-inactive {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  margin: 0px 10px;
+
+  border-radius: 10px;
+  padding: 6px 12px;
+
+  color: white;
+  background-color: #5c6572;
+}
+
+.paneChangeButtons {
+  flex-direction: row;
+}
+
+.shadow-border {
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 23px 28px;
+
+  background: #ffffff;
+  box-shadow: 0px 10px 15px rgba(31, 41, 55, 0.1),
+    0px 0px 6px rgba(31, 41, 55, 0.05);
+}
+
+.round-border {
+  align-items: flex-start;
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.p2-divider {
+  margin: auto;
+  height: 100%;
+  width: 0px;
+  border-left: 2px solid rgba(0, 0, 0, 0.2);
+}

@@ -6,6 +6,7 @@
 */
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import { NormalButton, BlackButton } from "./Button.style";
 import "../styles/nav.css";
@@ -18,10 +19,14 @@ class Navigation extends React.Component {
       <Container id="nav_spacing">
         <Row id="Ngrid">
           <Col id="Nlogo">
-            <img src={logo} className="navLogo" alt="T1D logo" />
+            <Link to="/">
+              <img src={logo} className="navLogo" alt="T1D logo" />
+            </Link>
           </Col>
           <Col>
-            <NormalButton className="NButtonText"> Create Mine</NormalButton>
+            <Link to="/create">
+              <NormalButton className="NButtonText"> Create Mine</NormalButton>
+            </Link>
           </Col>
           <Col>
             <BlackButton className="BlackNButtonText">
