@@ -2,53 +2,39 @@
     may need to remove overview spacing for when we actually put together the components
 */
 
+
+
+.title {
+    font-family: 'Inter';
+    font-style: 'normal';
+    font-size: 2.5em;
+    font-weight: 1000;
+    line-height: 40px;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 2.5%;
+    color: #374151;
+}
+
+
+.boxes {
+    border-radius: 9px;
+    margin: 15px;
+    padding: 50px;
+    text-align: left;
+    background-color: #E5E7EB;
+}
+
+
 #overview_spacing {
-    margin-top: 100px;   
+    margin-top: 100px;
     margin-bottom: 100px;
 }
+
 
 /*
     classes
 */
-
-.number {
-    font-family: 'Inter';
-    font-style: 'normal';
-    font-size: 5em;
-    font-weight: 900;
-    line-height: 97px;
-    padding: 0px;
-    margin: 0px;
-    color: #374151;
-}
-
-.stat {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 30px;
-    line-height: 36px;
-    color: #374151;
-}
-
-.description {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 29px;
-    padding: 0px;
-    margin: 0px;
-    color: #000000;
-}
-
-.boxes {
-    border-radius: 9px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 2%;
-    text-align: left;
-}
 
 /*
     ids
@@ -56,22 +42,53 @@
 
 #grid {
     display: flex;
+    margin-left: 5%;
 }
 
-#minutes {
-    background-color: #FFF9DF;
-    margin-left: 110px;
-    width: 15%;
+
+#explanation_container {
+    width: 550px;
+    height: 509.55px;
+    left: 100px;
+    top: 1385px;
+    background: #374151;
+    border-radius: 13px;
+    margin-left: 20%;
 }
 
-#cost {
-    background-color: #E5E7EB;
-    margin-left: 16px;
-    width: 20%
+#ov_container {
+    width: 550px;
+    height: 509.55px;
+    left: 100px;
+    top: 1385px;
+    background: white;
+    border-radius: 13px;
+    margin-left: 15%;
 }
 
-#research {
-    background-color: #E5E7EB;
-    margin-left: 16px;
-    margin-right: 80px;
+#list {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 10%;
 }
+
+#explanation_container_heading {
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: normal;
+    text-align: left;
+    color: white;
+    margin: 50px;
+    margin-top: 0px;
+    margin-bottom: -25px;
+    width:80%;
+    position:relative;
+
+  }

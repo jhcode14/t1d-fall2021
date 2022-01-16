@@ -27,23 +27,29 @@
 
 #doctor {
     z-index: 1;
-    width: 25vw;
+    width: 20vw;
     padding: 2%;
     margin-left: 10vw;
     position: relative;
-}  
+}
 
 #first_bubble {
     z-index: 2;
     margin-top: -80vh;
     margin-left: -5vw;
+    margin-right: 5vw;
     position: relative;
 }
 
 #first_speech {
     z-index: 3;
     position: relative;
-    margin-top: -8.5vh;
+    margin-top: -7.8vh;
+    text-align: left;
+    font-weight: 500;
+    font-size: 20px;
+    width: 35vw;
+    margin-left: 32vw;
 }
 
 #right_image {
@@ -54,7 +60,7 @@
 #patient {
     z-index: 4;
     position: relative;
-    width: 40vw;
+    width: 30vw;
     display: inline;
     margin-right: -40vw;
 }
@@ -62,20 +68,35 @@
 #second_bubble {
     z-index: 2;
     margin-top: -80vh;
+    margin-left: 5vw;
     position: relative;
 }
 
 #second_speech {
+
     z-index: 3;
     position: relative;
-    margin-top: -15vh;
+    margin-top: -14vh;
     text-align: left;
-    width: 40vw;
-    margin-left: 30vw;
+    font-weight: 500;
+    font-size: 20px;
+    width: 35vw;
+    margin-left: 28vw;
 }
 
 #button {
-    margin-top: 50vh;
+    margin-top: 55vh;
     padding: 5%;
     margin-bottom: 20vh;
 }
+
+#speech_font {
+    font-family: 'Inter';
+    font-style: bold;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: normal;
+    text-align: left;
+    margin: 50px;
+
+  }

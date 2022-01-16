@@ -1,12 +1,25 @@
 /*
     classes
 */
-
-.list_item {
-    margin-bottom: 5%;
+.description_list{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: black;
+    margin-bottom: 5px;
+}
+.why_blocktext {
+  margin-left: 100px;
+  margin-right: 20%;
+  padding: 5%;
+  text-align: center;
 }
 
-
+.text_box{
+  text-align:left;
+  width: 35%;
+}
 /*
     ids
 */
@@ -16,36 +29,31 @@
     justify-content: center;
 }
 
-#heading {
+#description{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 800;
-    font-size: 64px;
-    line-height: 77px;
-    color: #374151;
+    font-weight: normal;
+    font-size: 24px;
+    color: black;
 }
 
-#explanation_container {
-    width: 674px;
-    height: 509.55px;
-    left: 100px;
-    top: 1385px;
-    background: #374151;
-    border-radius: 13px;
-}
 
-#list {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 150%;
-    color: #FFFFFF;
-    text-align: left;
-    padding: 10%;
-}
+
 
 #form_image {
-    width: 107%;
-    height: 100%;
+    width: 100%;
+    height: 95%;
+}
+
+#why_boldtext {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  padding-top: 0%;
+  padding-bottom: 2.5%;
+  margin-left: 25%;
+  width: 50%;
 }

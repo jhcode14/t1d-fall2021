@@ -2,7 +2,7 @@
     bottom: 191;
     width: 100%;
     position: absolute;
-    margin-top: 100px;   
+    margin-top: 7%;
     background: #E5E7EB;
     /* mobile version coming soon */
     @media (max-width: 1000px) {
@@ -16,14 +16,16 @@
 
 .Flogo {
     /* this needs to later on be adjusted based on screen width */
-    margin-right: 54%;
+    margin-right: 62.5%;
 }
 
 .Flinks {
     margin-left: 69px;
+    margin-top: 1%;
     text-align: left;
     font-family: 'Inter';
     font-style: 'normal';
+    font-size: 16px;
     white-space: nowrap;
 }
 
@@ -35,6 +37,6 @@
     display: flex;
     margin-left: 1.2%;
     margin-top: 17px;
-    margin-bottom: 74px;
+    margin-bottom: 20px;
     margin-right: 75px;
 }

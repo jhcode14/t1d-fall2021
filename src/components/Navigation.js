@@ -8,7 +8,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import { NormalButton, BlackButton } from "./Button.style";
+import { ClearButton,NormalButton, BlackButton } from "./Button.style";
 import "../styles/nav.css";
 
 import logo from "../images/ddi_logo.png";
@@ -24,15 +24,13 @@ class Navigation extends React.Component {
             </Link>
           </Col>
           <Col>
-            <Link to="/create">
-              <NormalButton className="NButtonText"> Create Mine</NormalButton>
-            </Link>
+              <ClearButton className="NButtonText"> Privacy Statement</ClearButton>
           </Col>
           <Col>
-            <BlackButton className="BlackNButtonText">
-              {" "}
-              Feedback Form
-            </BlackButton>
+            <ClearButton className="NButtonText"> UCSD Design Lab</ClearButton>
+          </Col>
+          <Col>
+            <ClearButton className="NButtonText"> Our Research</ClearButton>
           </Col>
         </Row>
       </Container>

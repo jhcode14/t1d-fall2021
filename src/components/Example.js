@@ -7,6 +7,7 @@ import doctor from '../images/doctor_standing.png';
 import patient from '../images/person_standing.png';
 import speech1 from '../images/speech1.png';
 import speech2 from '../images/speech2.png'
+import { Link } from "react-router-dom";
 
 class Example extends React.Component {
     render() {
@@ -18,7 +19,7 @@ class Example extends React.Component {
                     </div>
                     <div id="first_bubble">
                         <img src={speech1} />
-                        <div 
+                        <div
                             id="first_speech" className="speech_bubble"
                         >
                             What should I know about your Type 1 diabetes?
@@ -34,14 +35,16 @@ class Example extends React.Component {
                         <div
                             id="second_speech"
                             className="speech_bubble"
-                        > 
+                        >
                             This directive has my most important wishes and my latest data.
                         </div>
                     </div>
                 </div>
 
                 <div id="button">
-                    <NormalButton className="MediumButtonText">Look at an example!</NormalButton>
+                <Link to="/create">
+                  <NormalButton className="MediumButtonText" >Create my directive</NormalButton>
+                </Link>
                 </div>
 
             </div>
