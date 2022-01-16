@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Row, Col, Input, DatePicker, Radio } from "antd";
 import { AiOutlineSearch } from "react-icons/ai";
 import Download from "./CreatePdf.js";
-import styles from "./DemoCreation.module.css";
+import styles from "../styles/DemoCreation.module.css";
 
 // ToDo: disable next/previous button when page 1 or 7
 //       show different pane
@@ -37,9 +37,11 @@ function Questionaries(key) {
         <Col span={24}>
           <div className={styles.surveyTitle}>About You</div>
           <span className={styles.surveyText}>
+            <br />
             Include your standard information for identification purposes and
             HbA1c such that healthcare personnel can understand your diabetes
-            management better. <p style={{ color: "red" }}>* Required</p>
+            management better.
+            <p style={{ color: "red", fontStyle: "italic",fontSize:"12px"}}>* Required</p>
           </span>
         </Col>
         <Col span={12} offset={6} className={styles["shadow-border"]}>
@@ -96,7 +98,7 @@ function Questionaries(key) {
             Include your comprehensive list of diabetes devices/apps (pump, CGM,
             apps) you rely on to help healthcare personnel understand which
             tools are critical in helping you manage your diabetes.
-            <p style={{ color: "red" }}>* Required</p>
+            <p style={{ color: "red", fontStyle: "italic",fontSize:"12px"}}>* Required</p>
           </span>
         </Row>
         <Row>
@@ -138,7 +140,7 @@ function Questionaries(key) {
             case of an emergency or when you do not have a clear mind.
             Additional information can be added at the end of this creation
             process.
-            <p style={{ color: "red" }}>* Required</p>
+            <p style={{ color: "red", fontStyle: "italic",fontSize:"12px"}}>* Required</p>
           </span>
         </Row>
         <Row>
