@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Row, Col, Input, DatePicker, Radio } from "antd";
+import { Button, Row, Col, Input, Checkbox } from "antd";
 import { AiOutlineSearch } from "react-icons/ai";
-import Download from "./CreatePdf.js";
+import ProgressBar from "./ProgressBar.jsx";
+import Download from "../CreatePdf.js";
 import styles from "./DemoCreation.module.css";
 
 // ToDo: disable next/previous button when page 1 or 7
@@ -22,11 +23,21 @@ const data = {
   ladose: "",
   avgInsToCarb: "",
   isf: "",
+  drInfo: "",
+  drSpec: "",
+  drAffi: "",
+  drCont: "",
+  drSign: true,
 };
 
 function Questionaries(key) {
   function onChange(target, text) {
     data[target] = text.target.value;
+  }
+
+  function onChangeBool(target, state) {
+    console.log(state);
+    //data[target] =
   }
 
   const paneKey = key.number;
@@ -191,11 +202,65 @@ function Questionaries(key) {
               addonAfter="mg/dL"
             />
           </Col>
+          <Col></Col>
         </Row>
       </div>
     );
   } else if (paneKey === 4) {
-    display = <div>4</div>;
+    display = (
+      <div>
+        <Row>
+          <div className={styles.surveyTitle}>Contact Info</div>
+          <span className={styles.surveyText}>
+            In a situation where you are not conscious and/or require additional
+            information about your healthcare, your endocrinologist and diabetes
+            advocate information can be listed as a contact.
+            <p style={{ color: "red" }}>* Required</p>
+          </span>
+        </Row>
+        <Row>
+          <Col>
+            <p>
+              Your Doctor's Information <span style={{ color: "red" }}>*</span>
+            </p>
+            <div>Name</div>
+            <Input
+              placeholder="eg. Dr. Normal"
+              defaultValue={data.drInfo}
+              onChange={(text, _) => {
+                onChange("drInfo", text);
+              }}
+            />
+            <div>Speciality</div>
+            <Input
+              placeholder="eg. endocrinologist"
+              defaultValue={data.drSpec}
+              onChange={(text, _) => {
+                onChange("drSpec", text);
+              }}
+            />
+            <div>Affiliation</div>
+            <Input
+              placeholder="eg. Stanford Health"
+              defaultValue={data.drAffi}
+              onChange={(text, _) => {
+                onChange("drAffi", text);
+              }}
+            />
+            <Checkbox
+              defaultChecked={true}
+              onChange={(state, _) => {
+                onChangeBool("drSign", state);
+              }}
+            >
+              // not done yet Include signature space for this contact on the
+              final document.
+            </Checkbox>
+          </Col>
+          <Col></Col>
+        </Row>
+      </div>
+    );
   } else if (paneKey === 5) {
     display = <div>5</div>;
   } else if (paneKey === 6) {
@@ -213,128 +278,6 @@ function Questionaries(key) {
     );
   } else {
     display = <div>ERROR</div>;
-    console.error(`invalid activePane input ${paneKey}`);
-  }
-
-  return display;
-}
-
-function ProgressBar(key) {
-  const paneKey = key.number;
-  let display;
-  if (paneKey === 1) {
-    display = (
-      <div>
-        <div className={styles.progress}>
-          <div className={styles["progress-bar1"]}></div>
-        </div>
-        <Row justify="center">
-          <Col className={styles["progress-tab-active"]}>About you</Col>
-          <Col className={styles["progress-tab-inactive"]}>
-            Management Tools
-          </Col>
-          <Col className={styles["progress-tab-inactive"]}>Insulin Dosing</Col>
-          <Col className={styles["progress-tab-inactive"]}>Contact Info</Col>
-          <Col className={styles["progress-tab-inactive"]}>Decisions</Col>
-          <Col className={styles["progress-tab-inactive"]}>Additional Info</Col>
-        </Row>
-      </div>
-    );
-  } else if (paneKey === 2) {
-    display = (
-      <div>
-        <div className={styles.progress}>
-          <div className={styles["progress-bar2"]}></div>
-        </div>
-        <Row justify="center">
-          <Col className={styles["progress-tab-inactive"]}>About you</Col>
-          <Col className={styles["progress-tab-active"]}>Management Tools</Col>
-          <Col className={styles["progress-tab-inactive"]}>Insulin Dosing</Col>
-          <Col className={styles["progress-tab-inactive"]}>Contact Info</Col>
-          <Col className={styles["progress-tab-inactive"]}>Decisions</Col>
-          <Col className={styles["progress-tab-inactive"]}>Additional Info</Col>
-        </Row>
-      </div>
-    );
-  } else if (paneKey === 3) {
-    display = (
-      <div>
-        <div className={styles.progress}>
-          <div className={styles["progress-bar3"]}></div>
-        </div>
-        <Row justify="center">
-          <Col className={styles["progress-tab-inactive"]}>About you</Col>
-          <Col className={styles["progress-tab-inactive"]}>
-            Management Tools
-          </Col>
-          <Col className={styles["progress-tab-active"]}>Insulin Dosing</Col>
-          <Col className={styles["progress-tab-inactive"]}>Contact Info</Col>
-          <Col className={styles["progress-tab-inactive"]}>Decisions</Col>
-          <Col className={styles["progress-tab-inactive"]}>Additional Info</Col>
-        </Row>
-      </div>
-    );
-  } else if (paneKey === 4) {
-    display = (
-      <div>
-        <div className={styles.progress}>
-          <div className={styles["progress-bar4"]}></div>
-        </div>
-        <Row justify="center">
-          <Col className={styles["progress-tab-inactive"]}>About you</Col>
-          <Col className={styles["progress-tab-inactive"]}>
-            Management Tools
-          </Col>
-          <Col className={styles["progress-tab-inactive"]}>Insulin Dosing</Col>
-          <Col className={styles["progress-tab-active"]}>Contact Info</Col>
-          <Col className={styles["progress-tab-inactive"]}>Decisions</Col>
-          <Col className={styles["progress-tab-inactive"]}>Additional Info</Col>
-        </Row>
-      </div>
-    );
-  } else if (paneKey === 5) {
-    display = (
-      <div>
-        <div className={styles.progress}>
-          <div className={styles["progress-bar5"]}></div>
-        </div>
-        <Row justify="center">
-          <Col className={styles["progress-tab-inactive"]}>About you</Col>
-          <Col className={styles["progress-tab-inactive"]}>
-            Management Tools
-          </Col>
-          <Col className={styles["progress-tab-inactive"]}>Insulin Dosing</Col>
-          <Col className={styles["progress-tab-inactive"]}>Contact Info</Col>
-          <Col className={styles["progress-tab-active"]}>Decisions</Col>
-          <Col className={styles["progress-tab-inactive"]}>Additional Info</Col>
-        </Row>
-      </div>
-    );
-  } else if (paneKey === 6) {
-    display = (
-      <div>
-        <div className={styles.progress}>
-          <div className={styles["progress-bar6"]}></div>
-        </div>
-        <Row justify="center">
-          <Col className={styles["progress-tab-inactive"]}>About you</Col>
-          <Col className={styles["progress-tab-inactive"]}>
-            Management Tools
-          </Col>
-          <Col className={styles["progress-tab-inactive"]}>Insulin Dosing</Col>
-          <Col className={styles["progress-tab-inactive"]}>Contact Info</Col>
-          <Col className={styles["progress-tab-inactive"]}>Decisions</Col>
-          <Col className={styles["progress-tab-active"]}>Additional Info</Col>
-        </Row>
-      </div>
-    );
-  } else if (paneKey === 7) {
-    display = (
-      <div>
-        <div className={styles.progressText}>Form Completion</div>
-      </div>
-    );
-  } else {
     console.error(`invalid activePane input ${paneKey}`);
   }
 
@@ -369,7 +312,6 @@ function DocCreation() {
       <Row>
         <Col span={12} offset={6}>
           <Questionaries number={activePane} />
-          <div>`currently at {activePane}`</div>
           <div>
             <Button onClick={onClickPrevious}>Previous</Button>
             <Button type="primary" onClick={onClickNext}>
