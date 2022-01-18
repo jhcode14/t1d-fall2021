@@ -8,29 +8,29 @@ class Overview extends React.Component {
         return (
             <Container id="overview_spacing">
                 <Row id="grid">
-                    <Col 
-                        id="minutes"
-                        className="boxes"
-                    >
-                        <h2 className="number">15</h2>
-                        <h3 className="stat">minutes</h3>
-                        <p className="description">with user friendly interfaces.</p>
+                  <Col className="column">
+                  <div id="ov_container">
+                      <Row className="boxes">
+                          <h2 className="title">Free of cost</h2>
+                      </Row>
+                      <Row className="boxes">
+                          <h2 className="title">Fast creation</h2>
+                      </Row>
+                      <Row className="boxes">
+                          <h2 className="title">Powered by research</h2>
+                      </Row>
+                    </div>
                     </Col>
-                    <Col 
-                        id="cost"
-                        className="boxes"
-                    >
-                        <h2 className="number">Free</h2>
-                        <h3 className="stat">of cost</h3>
-                        <p className="description">Open source code base.</p>
-                    </Col>
-                    <Col 
-                        id="research"
-                        className="boxes"
-                    >
-                        <h2 className="number">Research</h2>
-                        <h3 className="stat">by the Diabetes Design Initiative</h3>
-                        <p className="description">Tested with PWD and healthcare providers.</p>
+
+                    <Col className="column">
+                        <div id="explanation_container">
+                            <h2 id="explanation_container_heading"><br />What can you do with the T1D care directive?</h2>
+                            <ul id="list">
+                                <li className="list_item">Start a conversation with your provider about healthcare options.</li>
+                                <li className="list_item">Educate others about your diabetes facts and care instructions easily. </li>
+                                <li className="list_item">Show your expert knowledge and life of experience.</li>
+                            </ul>
+                        </div>
                     </Col>
                 </Row>
             </Container>

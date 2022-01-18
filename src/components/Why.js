@@ -9,17 +9,23 @@ class Why extends React.Component {
     render() {
         return(
             <Container>
+            <Row id="why_blocktext">
+                <h2 id="why_boldtext">Help healthcare providers learn how to care for you with a T1D Care Directive.</h2>
+            </Row>
                 <Row id="box">
-                    <Col className="column">
-                        <h2 id="heading">Why care directive?</h2>
-                        <div id="explanation_container">
-                            <ul id="list">
-                                <li className="list_item">Start a conversation with your provider about healthcare options.</li>
-                                <li className="list_item">Educate others about your diabetes facts and care instructions easily. </li>
-                                <li className="list_item">Show your expert knowledge and life of experience.</li>
-                            </ul>
-                        </div>
-                    </Col>
+                    <Col className="text_box">
+                        <h2 id="description">
+                          Your directive is one-page document to support you in healthcare settings, especially when the providers do not specialize in Type 1 Diabetes and have no access to your medical records.<br /><br />
+                          It includes information on:
+                        </h2>
+                          <ul>
+                              <li className="description_list">Management Tools</li>
+                              <li className="description_list">Insulin Dosing </li>
+                              <li className="description_list">Contact for your primary provider, other advocates, or loved ones</li>
+                              <li className="description_list">List of Your Health Care Preferences/Wishes</li>
+                              <li className="description_list">Medications, past surgeries and other customizable fields </li>
+                          </ul>
+                        </Col>
                     <Col className="column">
                         <img src={final_form} id="form_image"/>
                     </Col>

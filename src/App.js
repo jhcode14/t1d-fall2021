@@ -45,8 +45,8 @@ function Landing() {
     <div className="App">
       <Navigation />
       <Firstfold />
-      <Overview />
       <Why />
+      <Overview />
       <Example />
       <CreationGIF />
       <CreateDirective />
