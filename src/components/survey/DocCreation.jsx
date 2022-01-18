@@ -23,11 +23,22 @@ const data = {
   ladose: "",
   avgInsToCarb: "",
   isf: "",
-  drInfo: "",
+  drName: "",
   drSpec: "",
   drAffi: "",
   drCont: "",
   drSign: true,
+  avName: "",
+  avRela: "",
+  avCred: "",
+  avCount: "",
+  avSign: true,
+  addInfoDefault1: true,
+  addInfoDefault2: true,
+  addInfoDefault3: true,
+  addInfo4: "",
+  addInfo5: "",
+  addInfo6: "",
 };
 
 function Questionaries(key) {
@@ -36,8 +47,7 @@ function Questionaries(key) {
   }
 
   function onChangeBool(target, state) {
-    console.log(state);
-    //data[target] =
+    data[target] = state.target.checked;
   }
 
   const paneKey = key.number;
@@ -219,19 +229,19 @@ function Questionaries(key) {
           </span>
         </Row>
         <Row>
-          <Col>
+          <Col span={12}>
             <p>
               Your Doctor's Information <span style={{ color: "red" }}>*</span>
             </p>
             <div>Name</div>
             <Input
               placeholder="eg. Dr. Normal"
-              defaultValue={data.drInfo}
+              defaultValue={data.drName}
               onChange={(text, _) => {
-                onChange("drInfo", text);
+                onChange("drName", text);
               }}
             />
-            <div>Speciality</div>
+            <div>Specialty</div>
             <Input
               placeholder="eg. endocrinologist"
               defaultValue={data.drSpec}
@@ -253,18 +263,87 @@ function Questionaries(key) {
                 onChangeBool("drSign", state);
               }}
             >
-              // not done yet Include signature space for this contact on the
-              final document.
+              Include signature space for this contact on the final document.
             </Checkbox>
           </Col>
-          <Col></Col>
+          <Col span={12}>
+            <p>
+              Your Advocate's Information{" "}
+              <span style={{ color: "red" }}>*</span>
+            </p>
+            <div>Name</div>
+            <Input
+              placeholder="eg. Cassie Dune"
+              defaultValue={data.avName}
+              onChange={(text, _) => {
+                onChange("avName", text);
+              }}
+            />
+            <div>Relationship to you</div>
+            <Input
+              placeholder="eg. spouse"
+              defaultValue={data.avRela}
+              onChange={(text, _) => {
+                onChange("avRela", text);
+              }}
+            />
+            <div>Credentials (if any)</div>
+            <Input
+              placeholder="eg. Diabetes Educator"
+              defaultValue={data.avCred}
+              onChange={(text, _) => {
+                onChange("avCred", text);
+              }}
+            />
+            <Checkbox
+              defaultChecked={true}
+              onChange={(state, _) => {
+                onChangeBool("avSign", state);
+              }}
+            >
+              Include signature space for this contact on the final document.
+            </Checkbox>
+          </Col>
         </Row>
       </div>
     );
   } else if (paneKey === 5) {
-    display = <div>5</div>;
+    display = (
+      <div>
+        <Row>
+          <div className={styles.surveyTitle}>Healthcare Wishes</div>
+          <span className={styles.surveyText}>
+            This lists your specific preferences and wishes you have in regards
+            to diabetes care when you do not have a clear mind. These decisions
+            should be consulted with your doctors (listed earlier).
+          </span>
+        </Row>
+        <Row>
+          <div className={styles.additionalInfoTitle}>
+            What decisions should be consulted?
+          </div>
+          <Checkbox
+            defaultChecked={true}
+            onChange={(state, _) => {
+              onChangeBool("addInfoDefault1", state);
+            }}
+          >
+            Remove my (previously answered in Management Tools) device(s) listed
+            earlier
+          </Checkbox>
+          <Checkbox>
+            Change the settings of my device(s) listed earlier
+          </Checkbox>
+          <Checkbox>Put steroid or glucose in IV</Checkbox>
+        </Row>
+      </div>
+    );
   } else if (paneKey === 6) {
-    display = <div>6</div>;
+    display = (
+      <div>
+        <Row></Row>
+      </div>
+    );
   } else if (paneKey === 7) {
     display = (
       <div>
