@@ -12,7 +12,6 @@
 */
 import React from "react";
 import { Link } from "react-router-dom";
-
 //import { Box, Container, Logo, centerPadding} from "./Footer.style";
 
 import { Container, Row, Col } from "react-bootstrap";
@@ -27,7 +26,7 @@ class Footer extends React.Component {
       <Container id="footer_spacing">
         <Row id="Fgrid">
           <Col className="Flogo">
-            <img src={logo} width="350 px" height="auto" alt="T1D logo"/>
+            <img src={logo} width="350 px" height="auto" alt="T1D logo" />
           </Col>
           <Col className="Flinks">
             <Link to="/about">About Us</Link>

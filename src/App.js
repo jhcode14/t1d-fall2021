@@ -16,7 +16,7 @@ import Footer from "./components/Footer.js";
 import Firstfold from "./components/Firstfold.js";
 
 import SurveyNavigation from "./components/SurveyNavigation";
-import DocCreation from "./components/DocCreation.jsx";
+import DocCreation from "./components/survey/DocCreation.jsx";
 
 function App() {
   return (
