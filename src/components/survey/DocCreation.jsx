@@ -10,6 +10,8 @@ import styles from "./DemoCreation.module.css";
 //       show different pane
 //       customize different pane
 
+const { TextArea } = Input;
+
 const data = {
   name: "",
   dobY: "",
@@ -39,6 +41,8 @@ const data = {
   addInfo4: "",
   addInfo5: "",
   addInfo6: "",
+  addCommentsMed: "",
+  addCommentsDiet: "",
 };
 
 function Questionaries(key) {
@@ -319,39 +323,70 @@ function Questionaries(key) {
           </span>
         </Row>
         <Row>
-          <div className={styles.additionalInfoTitle}>
-            What decisions should be consulted?
-          </div>
-          <Checkbox
-            defaultChecked={true}
-            onChange={(state, _) => {
-              onChangeBool("addInfoDefault1", state);
-            }}
-          >
-            Remove my (previously answered in Management Tools) device(s) listed
-            earlier
-          </Checkbox>
-          <Checkbox>
-            Change the settings of my device(s) listed earlier
-          </Checkbox>
-          <Checkbox>Put steroid or glucose in IV</Checkbox>
+          <Col span={24}>
+            {" "}
+            <div className={styles.additionalInfoTitle}>
+              What decisions should be consulted?
+            </div>
+            <Checkbox
+              defaultChecked={true}
+              onChange={(state, _) => {
+                onChangeBool("addInfoDefault1", state);
+              }}
+            >
+              Remove my (previously answered in Management Tools) device(s)
+              listed earlier
+            </Checkbox>
+            <Checkbox>
+              Change the settings of my device(s) listed earlier
+            </Checkbox>
+            <Checkbox>Put steroid or glucose in IV</Checkbox>
+          </Col>
         </Row>
       </div>
     );
   } else if (paneKey === 6) {
     display = (
       <div>
-        <Row></Row>
+        <Row>
+          <Col>
+            <h4 className={styles.surveyTitle}>Additional Information</h4>
+            <p className={styles.surveyText}>
+              Any information in this section will be listed on a second page,
+              so your document will be a total of two pages.
+            </p>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <div className={styles.additionalInfoTitle}>Medications</div>
+            <TextArea
+              rows={4}
+              placeholder="Examples:
+1. “Medication 1, Medication 2...”
+2. “Diabetes Management: Medication 1, Medication 2.., Hypothyroid: Medication 1”
+3. “Everyday at 7am I have to take...”"
+              defaultValue={data.addCommentsMed}
+              onChange={(text, _) => {
+                onChange("addCommentsMed", text);
+              }}
+            ></TextArea>
+            <div className={styles.additionalInfoTitle}>Diet</div>
+            <TextArea
+              rows={4}
+              placeholder="Example “I have celiac, which means I cannot consume wheat ... ”"
+              defaultValue={data.addCommentsDiet}
+              onChange={(text, _) => {
+                onChange("addCommentsDiet", text);
+              }}
+            ></TextArea>
+          </Col>
+        </Row>
       </div>
     );
   } else if (paneKey === 7) {
     display = (
       <div>
-        <h4 className={styles.surveyTitle}>Additional Information</h4>
-        <p className={styles.surveyText}>
-          Any information in this section will be listed on a second page, so
-          your document will be a total of two pages.
-        </p>
         <Download />
       </div>
     );
