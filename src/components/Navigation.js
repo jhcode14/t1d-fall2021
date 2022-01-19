@@ -8,7 +8,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import { ClearButton, NormalButton, BlackButton } from "./Button.style";
+import { ClearButton } from "./Button.style";
 import "../styles/nav.css";
 
 import logo from "../images/ddi_logo.png";
