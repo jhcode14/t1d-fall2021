@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Row, Col, Input, Checkbox } from "antd";
 import { AiOutlineSearch } from "react-icons/ai";
 import ProgressBar from "./ProgressBar.jsx";
-import Download from "../CreatePdf.js";
+import Download from "./CreatePdf.js";
 import styles from "./DemoCreation.module.css";
 
 // ToDo: disable next/previous button when page 1 or 7
