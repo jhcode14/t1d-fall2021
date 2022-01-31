@@ -41,7 +41,7 @@ async function CreatePDF(data) {
 
   const d = new Date();
   const headerLine1 = `${data.name} D.O.B ${data.dobY}/${data.dobM}/${data.dobD}`;
-  const headerLine2 = `Last updated: ${d.getTime()}`;
+  const headerLine2 = `Last updated: ${d.getFullYear}/${d.getMonth}/${d.getDate}`;
   doc.text(headerLine1, headerLineX, headerL1Y, { align: "right" });
   doc.text(headerLine2, headerLineX, headerL2Y, { align: "right" });
 
@@ -50,8 +50,8 @@ async function CreatePDF(data) {
   const footerUpdateY = 279 - 15;
 
   // to be changed
-  const footerName = "Alexise Berousbreg";
-  const footerUpdate = "Last updated: " + "8/23/2021";
+  const footerName = `${data.name}`;
+  const footerUpdate = headerLine2;
 
   doc.text(footerName, XAlign, footerNameY);
   doc.text(footerUpdate, XAlign, footerUpdateY);
@@ -64,7 +64,8 @@ async function CreatePDF(data) {
   // -----4 (non-static)----- Endorsed text below title
   doc.setFont("times", "normal");
   doc.setFontSize(normalSize);
-  doc.text("Endorsed by Dr. Emily Ahn", 108, 40.12, { align: "center" });
+  const endorsed = data.drName ? `Endorsed by ${data.drName}` : "";
+  doc.text(endorsed, 108, 40.12, { align: "center" });
 
   // -----5----- Paragraph 1 starter
   doc.text("To whom it may concern:", 23.11, 53.5);
@@ -95,7 +96,6 @@ async function CreatePDF(data) {
   const p2input1 = "HbA1c = 5.8%, 8/23/2021";
   const p2input2 = "80-150mg/dl";
   const p2input3 = "the CGM and pump";
-  const p2input4 = "my endocrinologist Dr. Emily Ahn";
 
   // final outline
   const paragraph2 =
@@ -107,9 +107,7 @@ async function CreatePDF(data) {
     "*When I am sound of mind,* I am the best person to" +
     " manage my diabetes. I want to retain control of my management using " +
     p2input3 +
-    ". *In other cases,* I wish " +
-    p2input4 +
-    " be consulted.";
+    `. *In other cases,* I wish my ${data.drSpec} ${data.drName} be consulted.`;
 
   let p2X = XAlign;
   let p2Y = 79;

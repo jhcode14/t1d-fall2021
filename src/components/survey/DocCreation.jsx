@@ -4,10 +4,10 @@ import { Button, Row, Col, Input, Checkbox } from "antd";
 import { AiOutlineSearch } from "react-icons/ai";
 import ProgressBar from "./ProgressBar.jsx";
 import Download from "./CreatePdf.js";
-import styles from "./DemoCreation.module.css";
+import styles from "./DocCreation.module.css";
 
 // ToDo: disable next/previous button when page 1 or 7
-//       show different pane
+//       show advanced pane
 //       customize different pane
 
 const { TextArea } = Input;
@@ -60,12 +60,12 @@ function Questionaries(key) {
     display = (
       <Row>
         <Col span={24}>
-          <div className={styles.surveyTitle}>About You</div>
-          <span className={styles.surveyText}>
+          <div className={styles.surveyTitle}> About You</div>
+          <div className={styles.surveyText}>
             Include your standard information for identification purposes and
             HbA1c such that healthcare personnel can understand your diabetes
             management better. <p style={{ color: "red" }}>* Required</p>
-          </span>
+          </div>
         </Col>
         <Col span={12} offset={6} className={styles["shadow-border"]}>
           <div>Full Name</div>
