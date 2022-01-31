@@ -387,7 +387,7 @@ function Questionaries(key) {
   } else if (paneKey === 7) {
     display = (
       <div>
-        <Download />
+        <Download data={data} />
       </div>
     );
   } else {

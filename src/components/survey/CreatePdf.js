@@ -13,7 +13,7 @@ import jsPDF from "jspdf";
     align right: 216mm - (476.77px - 286.69px - 178.4px)/476.77px * 216mm = 210.71mm
     text size: 10.13px/476.77px * 216mm = 4.58938mm
 */
-function CreatePDF(InputList) {
+async function CreatePDF(data) {
   // Default format
   // Assuming 216mm x 279mm for Letter
   var doc = new jsPDF({
@@ -39,8 +39,9 @@ function CreatePDF(InputList) {
   const headerL1Y = 7.23;
   const headerL2Y = 12.51;
 
-  const headerLine1 = "Alexise Berousbrerg D.O.B 4/6/1974";
-  const headerLine2 = "Last updated: 8/23/2021";
+  const d = new Date();
+  const headerLine1 = `${data.name} D.O.B ${data.dobY}/${data.dobM}/${data.dobD}`;
+  const headerLine2 = `Last updated: ${d.getTime()}`;
   doc.text(headerLine1, headerLineX, headerL1Y, { align: "right" });
   doc.text(headerLine2, headerLineX, headerL2Y, { align: "right" });
 
@@ -269,11 +270,16 @@ function CreatePDF(InputList) {
   doc.save("T1D_CareDirective.pdf");
 }
 
-function CreatePdf() {
+function CreatePdf(data) {
   return (
     <React.Fragment>
       <div>
-        <button onClick={CreatePDF} type="primary">
+        <button
+          onClick={function () {
+            CreatePDF(data.data);
+          }}
+          type="primary"
+        >
           Download PDF
         </button>
       </div>
