@@ -6,6 +6,9 @@ import ProgressBar from "./ProgressBar.jsx";
 import Download from "./CreatePdf.js";
 import styles from "./DocCreation.module.css";
 
+import Panel1 from "./Panel1.jsx";
+import Panel4 from "./Panel4.jsx";
+
 // ToDo: disable next/previous button when page 1 or 7
 //       show advanced pane
 //       customize different pane
@@ -54,62 +57,14 @@ function Questionaries(key) {
     data[target] = state.target.checked;
   }
 
+  function getItemData(target) {
+    return data[target];
+  }
+
   const paneKey = key.number;
   let display;
   if (paneKey === 1) {
-    display = (
-      <Row>
-        <Col span={24}>
-          <div className={styles.surveyTitle}> About You</div>
-          <div className={styles.surveyText}>
-            Include your standard information for identification purposes and
-            HbA1c such that healthcare personnel can understand your diabetes
-            management better. <p style={{ color: "red" }}>* Required</p>
-          </div>
-        </Col>
-        <Col span={12} offset={6} className={styles["shadow-border"]}>
-          <div>Full Name</div>
-          <Input
-            placeholder="eg. Johnny Appleseed"
-            defaultValue={data.name}
-            onChange={(text, _) => {
-              onChange("name", text);
-            }}
-          />
-          <div>Date of Birth</div>
-
-          <Row gutter={8}>
-            <Col span={6}>
-              <Input
-                placeholder="Month"
-                defaultValue={data.dobM}
-                onChange={(text, _) => {
-                  onChange("dobM", text);
-                }}
-              />
-            </Col>
-            <Col span={4}>
-              <Input
-                placeholder="Day"
-                defaultValue={data.dobD}
-                onChange={(text, _) => {
-                  onChange("dobD", text);
-                }}
-              />
-            </Col>
-            <Col span={4}>
-              <Input
-                placeholder="Year"
-                defaultValue={data.dobY}
-                onChange={(text, _) => {
-                  onChange("dobY", text);
-                }}
-              />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    );
+    display = <Panel1 onChange={onChange} get={getItemData} />;
   } else if (paneKey === 2) {
     display = (
       <div>
@@ -222,94 +177,11 @@ function Questionaries(key) {
     );
   } else if (paneKey === 4) {
     display = (
-      <div>
-        <Row>
-          <div className={styles.surveyTitle}>Contact Info</div>
-          <span className={styles.surveyText}>
-            In a situation where you are not conscious and/or require additional
-            information about your healthcare, your endocrinologist and diabetes
-            advocate information can be listed as a contact.
-            <p style={{ color: "red" }}>* Required</p>
-          </span>
-        </Row>
-        <Row>
-          <Col span={12}>
-            <p>
-              Your Doctor's Information <span style={{ color: "red" }}>*</span>
-            </p>
-            <div>Name</div>
-            <Input
-              placeholder="eg. Dr. Normal"
-              defaultValue={data.drName}
-              onChange={(text, _) => {
-                onChange("drName", text);
-              }}
-            />
-            <div>Specialty</div>
-            <Input
-              placeholder="eg. endocrinologist"
-              defaultValue={data.drSpec}
-              onChange={(text, _) => {
-                onChange("drSpec", text);
-              }}
-            />
-            <div>Affiliation</div>
-            <Input
-              placeholder="eg. Stanford Health"
-              defaultValue={data.drAffi}
-              onChange={(text, _) => {
-                onChange("drAffi", text);
-              }}
-            />
-            <Checkbox
-              defaultChecked={true}
-              onChange={(state, _) => {
-                onChangeBool("drSign", state);
-              }}
-            >
-              Include signature space for this contact on the final document.
-            </Checkbox>
-          </Col>
-          <Col span={12}>
-            <p>
-              Your Advocate's Information{" "}
-              <span style={{ color: "red" }}>*</span>
-            </p>
-            <div>Name</div>
-            <Input
-              placeholder="eg. Cassie Dune"
-              defaultValue={data.avName}
-              onChange={(text, _) => {
-                onChange("avName", text);
-              }}
-            />
-            <div>Relationship to you</div>
-            <Input
-              placeholder="eg. spouse"
-              defaultValue={data.avRela}
-              onChange={(text, _) => {
-                onChange("avRela", text);
-              }}
-            />
-            <div>Credentials (if any)</div>
-            <Input
-              placeholder="eg. Diabetes Educator"
-              defaultValue={data.avCred}
-              onChange={(text, _) => {
-                onChange("avCred", text);
-              }}
-            />
-            <Checkbox
-              defaultChecked={true}
-              onChange={(state, _) => {
-                onChangeBool("avSign", state);
-              }}
-            >
-              Include signature space for this contact on the final document.
-            </Checkbox>
-          </Col>
-        </Row>
-      </div>
+      <Panel4
+        onChange={onChange}
+        onChangeBool={onChangeBool}
+        get={getItemData}
+      />
     );
   } else if (paneKey === 5) {
     display = (
