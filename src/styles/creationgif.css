@@ -5,3 +5,11 @@
     margin-left: 10vw;
     margin-bottom: 10vh;
 }
+
+
+#gif_img {
+    padding-top: -10%;
+    width: 120%;
+    margin-left: -10%;
+    z-index: -1;
+}
