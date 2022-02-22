@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Row, Col, Input, Checkbox } from "antd";
+import { Button, Row, Col } from "antd";
 import ProgressBar from "./ProgressBar.jsx";
 import Download from "./CreatePdf.js";
 import styles from "./DocCreation.module.css";
