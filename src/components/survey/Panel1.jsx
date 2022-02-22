@@ -5,7 +5,6 @@ import styles from "./DocCreation.module.css";
 export default function Panel1(props) {
   return (
     <Row>
-      testing means success
       <Col span={24}>
         <div className={styles.surveyTitle}> About You</div>
         <div className={styles.surveyText}>
