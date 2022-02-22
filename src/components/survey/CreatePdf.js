@@ -1,5 +1,4 @@
 import React from "react";
-
 import jsPDF from "jspdf";
 
 /*
@@ -13,7 +12,7 @@ import jsPDF from "jspdf";
     align right: 216mm - (476.77px - 286.69px - 178.4px)/476.77px * 216mm = 210.71mm
     text size: 10.13px/476.77px * 216mm = 4.58938mm
 */
-function CreatePDF(InputList) {
+async function CreatePDF(data) {
   // Default format
   // Assuming 216mm x 279mm for Letter
   var doc = new jsPDF({
@@ -39,8 +38,9 @@ function CreatePDF(InputList) {
   const headerL1Y = 7.23;
   const headerL2Y = 12.51;
 
-  const headerLine1 = "Alexise Berousbrerg D.O.B 4/6/1974";
-  const headerLine2 = "Last updated: 8/23/2021";
+  const d = new Date();
+  const headerLine1 = `${data.name} D.O.B ${data.dobY}/${data.dobM}/${data.dobD}`;
+  const headerLine2 = `Last updated: ${d.getFullYear}/${d.getMonth}/${d.getDate}`;
   doc.text(headerLine1, headerLineX, headerL1Y, { align: "right" });
   doc.text(headerLine2, headerLineX, headerL2Y, { align: "right" });
 
@@ -49,8 +49,8 @@ function CreatePDF(InputList) {
   const footerUpdateY = 279 - 15;
 
   // to be changed
-  const footerName = "Alexise Berousbreg";
-  const footerUpdate = "Last updated: " + "8/23/2021";
+  const footerName = `${data.name}`;
+  const footerUpdate = headerLine2;
 
   doc.text(footerName, XAlign, footerNameY);
   doc.text(footerUpdate, XAlign, footerUpdateY);
@@ -63,7 +63,8 @@ function CreatePDF(InputList) {
   // -----4 (non-static)----- Endorsed text below title
   doc.setFont("times", "normal");
   doc.setFontSize(normalSize);
-  doc.text("Endorsed by Dr. Emily Ahn", 108, 40.12, { align: "center" });
+  const endorsed = data.drName ? `Endorsed by ${data.drName}` : "";
+  doc.text(endorsed, 108, 40.12, { align: "center" });
 
   // -----5----- Paragraph 1 starter
   doc.text("To whom it may concern:", 23.11, 53.5);
@@ -94,7 +95,6 @@ function CreatePDF(InputList) {
   const p2input1 = "HbA1c = 5.8%, 8/23/2021";
   const p2input2 = "80-150mg/dl";
   const p2input3 = "the CGM and pump";
-  const p2input4 = "my endocrinologist Dr. Emily Ahn";
 
   // final outline
   const paragraph2 =
@@ -106,9 +106,7 @@ function CreatePDF(InputList) {
     "*When I am sound of mind,* I am the best person to" +
     " manage my diabetes. I want to retain control of my management using " +
     p2input3 +
-    ". *In other cases,* I wish " +
-    p2input4 +
-    " be consulted.";
+    `. *In other cases,* I wish my ${data.drSpec} ${data.drName} be consulted.`;
 
   let p2X = XAlign;
   let p2Y = 79;
@@ -269,11 +267,16 @@ function CreatePDF(InputList) {
   doc.save("T1D_CareDirective.pdf");
 }
 
-function CreatePdf() {
+function CreatePdf(data) {
   return (
     <React.Fragment>
       <div>
-        <button onClick={CreatePDF} type="primary">
+        <button
+          onClick={function () {
+            CreatePDF(data.data);
+          }}
+          type="primary"
+        >
           Download PDF
         </button>
       </div>

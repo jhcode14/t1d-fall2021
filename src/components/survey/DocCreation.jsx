@@ -1,13 +1,19 @@
 import React from "react";
 import { useState } from "react";
-import { Button, Row, Col, Input, Checkbox } from "antd";
-import { AiOutlineSearch } from "react-icons/ai";
+import { Button, Row, Col } from "antd";
 import ProgressBar from "./ProgressBar.jsx";
-import Download from "../CreatePdf.js";
-import styles from "./DemoCreation.module.css";
+import Download from "./CreatePdf.js";
+import styles from "./DocCreation.module.css";
+
+import Panel1 from "./Panel1.jsx";
+import Panel2 from "./Panel2.jsx";
+import Panel3 from "./Panel3.jsx";
+import Panel4 from "./Panel4.jsx";
+import Panel5 from "./Panel5.jsx";
+import Panel6 from "./Panel6.jsx";
 
 // ToDo: disable next/previous button when page 1 or 7
-//       show different pane
+//       show advanced pane
 //       customize different pane
 
 const data = {
@@ -39,6 +45,8 @@ const data = {
   addInfo4: "",
   addInfo5: "",
   addInfo6: "",
+  addCommentsMed: "",
+  addCommentsDiet: "",
 };
 
 function Questionaries(key) {
@@ -50,309 +58,58 @@ function Questionaries(key) {
     data[target] = state.target.checked;
   }
 
+  function getItemData(target) {
+    return data[target];
+  }
+
   const paneKey = key.number;
   let display;
   if (paneKey === 1) {
-    display = (
-      <Row>
-        <Col span={24}>
-          <div className={styles.surveyTitle}>About You</div>
-          <span className={styles.surveyText}>
-            Include your standard information for identification purposes and
-            HbA1c such that healthcare personnel can understand your diabetes
-            management better. <p style={{ color: "red" }}>* Required</p>
-          </span>
-        </Col>
-        <Col span={12} offset={6} className={styles["shadow-border"]}>
-          <div>Full Name</div>
-          <Input
-            placeholder="eg. Johnny Appleseed"
-            defaultValue={data.name}
-            onChange={(text, _) => {
-              onChange("name", text);
-            }}
-          />
-          <div>Date of Birth</div>
-
-          <Row gutter={8}>
-            <Col span={6}>
-              <Input
-                placeholder="Month"
-                defaultValue={data.dobM}
-                onChange={(text, _) => {
-                  onChange("dobM", text);
-                }}
-              />
-            </Col>
-            <Col span={4}>
-              <Input
-                placeholder="Day"
-                defaultValue={data.dobD}
-                onChange={(text, _) => {
-                  onChange("dobD", text);
-                }}
-              />
-            </Col>
-            <Col span={4}>
-              <Input
-                placeholder="Year"
-                defaultValue={data.dobY}
-                onChange={(text, _) => {
-                  onChange("dobY", text);
-                }}
-              />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-    );
+    display = <Panel1 onChange={onChange} get={getItemData} />;
   } else if (paneKey === 2) {
     display = (
-      <div>
-        <Row>
-          <div className={styles.surveyTitle}>
-            Your Diabetes Management Tools
-          </div>
-          <span className={styles.surveyText}>
-            Include your comprehensive list of diabetes devices/apps (pump, CGM,
-            apps) you rely on to help healthcare personnel understand which
-            tools are critical in helping you manage your diabetes.
-            <p style={{ color: "red" }}>* Required</p>
-          </span>
-        </Row>
-        <Row>
-          <Col span={11}>
-            <div>To administer insulin, I use:</div>
-            <div className={styles["round-border"]}>
-              <div>Insulin Pen Brand</div>
-              <Input prefix={<AiOutlineSearch />}></Input>
-            </div>
-            <div className={styles["round-border"]}>
-              <div>Insulin Pump Brand</div>
-              <Input prefix={<AiOutlineSearch />}></Input>
-            </div>
-          </Col>
-          <Col span={2}>
-            <div className={styles["p2-divider"]}></div>
-          </Col>
-          <Col span={11}>
-            <div>To monitor my glucose levels, I use:</div>
-            <div className={styles["round-border"]}>
-              <div>Continuous Glucose Monitor (Brand)</div>
-              <Input prefix={<AiOutlineSearch />}></Input>
-            </div>
-            <div className={styles["round-border"]}>
-              <div>Software</div>
-              <Input prefix={<AiOutlineSearch />}></Input>
-            </div>
-          </Col>
-        </Row>
-      </div>
+      <Panel2
+        onChange={onChange}
+        onChangeBool={onChangeBool}
+        get={getItemData}
+      />
     );
   } else if (paneKey === 3) {
     display = (
-      <div>
-        <Row>
-          <div className={styles.surveyTitle}>Insulin Dosing</div>
-          <span className={styles.surveyText}>
-            Include your insulin dosing information for healthcare providers in
-            case of an emergency or when you do not have a clear mind.
-            Additional information can be added at the end of this creation
-            process.
-            <p style={{ color: "red" }}>* Required</p>
-          </span>
-        </Row>
-        <Row>
-          <Col span={11}>
-            <div>Rapid-Acting Insulin I use : </div>
-          </Col>
-          <Col span={2}></Col>
-          <Col span={11}>
-            <div>Long-Acting Insulin I use : </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col span={11}>
-            <div>What is your most recent HbA1c ?</div>
-            <Input
-              placeholder="HbA1c"
-              defaultValue={data.hba1c}
-              onChange={(text, _) => {
-                onChange("hba1c", text);
-              }}
-              addonAfter="%"
-            />
-            <div>My typical daily long acting insulin dose :</div>
-            <Input
-              placeholder="Value"
-              defaultValue={data.ladose}
-              onChange={(text, _) => {
-                onChange("ladose", text);
-              }}
-              addonAfter="U per day"
-            />
-            <div>My average Insulin to carbohydrate ratio :</div>
-            <Input
-              placeholder="Value"
-              defaultValue={data.avgInsToCarb}
-              onChange={(text, _) => {
-                onChange("avgInsToCarb", text);
-              }}
-              addonBefore="1 unit to "
-              addonAfter="g"
-            />
-            <div>My insulin sensitivity factor (ISF) :</div>
-            <Input
-              placeholder="Value"
-              defaultValue={data.isf}
-              onChange={(text, _) => {
-                onChange("isf", text);
-              }}
-              addonBefore="1 unit of insulin decrease blood glucose by"
-              addonAfter="mg/dL"
-            />
-          </Col>
-          <Col></Col>
-        </Row>
-      </div>
+      <Panel3
+        onChange={onChange}
+        onChangeBool={onChangeBool}
+        get={getItemData}
+      />
     );
   } else if (paneKey === 4) {
     display = (
-      <div>
-        <Row>
-          <div className={styles.surveyTitle}>Contact Info</div>
-          <span className={styles.surveyText}>
-            In a situation where you are not conscious and/or require additional
-            information about your healthcare, your endocrinologist and diabetes
-            advocate information can be listed as a contact.
-            <p style={{ color: "red" }}>* Required</p>
-          </span>
-        </Row>
-        <Row>
-          <Col span={12}>
-            <p>
-              Your Doctor's Information <span style={{ color: "red" }}>*</span>
-            </p>
-            <div>Name</div>
-            <Input
-              placeholder="eg. Dr. Normal"
-              defaultValue={data.drName}
-              onChange={(text, _) => {
-                onChange("drName", text);
-              }}
-            />
-            <div>Specialty</div>
-            <Input
-              placeholder="eg. endocrinologist"
-              defaultValue={data.drSpec}
-              onChange={(text, _) => {
-                onChange("drSpec", text);
-              }}
-            />
-            <div>Affiliation</div>
-            <Input
-              placeholder="eg. Stanford Health"
-              defaultValue={data.drAffi}
-              onChange={(text, _) => {
-                onChange("drAffi", text);
-              }}
-            />
-            <Checkbox
-              defaultChecked={true}
-              onChange={(state, _) => {
-                onChangeBool("drSign", state);
-              }}
-            >
-              Include signature space for this contact on the final document.
-            </Checkbox>
-          </Col>
-          <Col span={12}>
-            <p>
-              Your Advocate's Information{" "}
-              <span style={{ color: "red" }}>*</span>
-            </p>
-            <div>Name</div>
-            <Input
-              placeholder="eg. Cassie Dune"
-              defaultValue={data.avName}
-              onChange={(text, _) => {
-                onChange("avName", text);
-              }}
-            />
-            <div>Relationship to you</div>
-            <Input
-              placeholder="eg. spouse"
-              defaultValue={data.avRela}
-              onChange={(text, _) => {
-                onChange("avRela", text);
-              }}
-            />
-            <div>Credentials (if any)</div>
-            <Input
-              placeholder="eg. Diabetes Educator"
-              defaultValue={data.avCred}
-              onChange={(text, _) => {
-                onChange("avCred", text);
-              }}
-            />
-            <Checkbox
-              defaultChecked={true}
-              onChange={(state, _) => {
-                onChangeBool("avSign", state);
-              }}
-            >
-              Include signature space for this contact on the final document.
-            </Checkbox>
-          </Col>
-        </Row>
-      </div>
+      <Panel4
+        onChange={onChange}
+        onChangeBool={onChangeBool}
+        get={getItemData}
+      />
     );
   } else if (paneKey === 5) {
     display = (
-      <div>
-        <Row>
-          <div className={styles.surveyTitle}>Healthcare Wishes</div>
-          <span className={styles.surveyText}>
-            This lists your specific preferences and wishes you have in regards
-            to diabetes care when you do not have a clear mind. These decisions
-            should be consulted with your doctors (listed earlier).
-          </span>
-        </Row>
-        <Row>
-          <div className={styles.additionalInfoTitle}>
-            What decisions should be consulted?
-          </div>
-          <Checkbox
-            defaultChecked={true}
-            onChange={(state, _) => {
-              onChangeBool("addInfoDefault1", state);
-            }}
-          >
-            Remove my (previously answered in Management Tools) device(s) listed
-            earlier
-          </Checkbox>
-          <Checkbox>
-            Change the settings of my device(s) listed earlier
-          </Checkbox>
-          <Checkbox>Put steroid or glucose in IV</Checkbox>
-        </Row>
-      </div>
+      <Panel5
+        onChange={onChange}
+        onChangeBool={onChangeBool}
+        get={getItemData}
+      />
     );
   } else if (paneKey === 6) {
     display = (
-      <div>
-        <Row></Row>
-      </div>
+      <Panel6
+        onChange={onChange}
+        onChangeBool={onChangeBool}
+        get={getItemData}
+      />
     );
   } else if (paneKey === 7) {
     display = (
       <div>
-        <h4 className={styles.surveyTitle}>Additional Information</h4>
-        <p className={styles.surveyText}>
-          Any information in this section will be listed on a second page, so
-          your document will be a total of two pages.
-        </p>
-        <Download />
+        <Download data={data} />
       </div>
     );
   } else {
