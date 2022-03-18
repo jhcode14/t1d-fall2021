@@ -19,31 +19,37 @@ export default function Panel5(props) {
           <div className={styles.additionalInfoTitle}>
             What decisions should be consulted?
           </div>
-          <Checkbox
-            defaultChecked={props.get("addInfoDefault1")}
-            onChange={(state, _) => {
-              props.onChangeBool("addInfoDefault1", state);
-            }}
-          >
-            Remove my (previously answered in Management Tools) device(s) listed
-            earlier
-          </Checkbox>
-          <Checkbox
-            defaultChecked={props.get("addInfoDefault2")}
-            onChange={(state, _) => {
-              props.onChangeBool("addInfoDefault2", state);
-            }}
-          >
-            Change the settings of my device(s) listed earlier
-          </Checkbox>
-          <Checkbox
-            defaultChecked={props.get("addInfoDefault3")}
-            onChange={(state, _) => {
-              props.onChangeBool("addInfoDefault3", state);
-            }}
-          >
-            Put steroid or glucose in IV
-          </Checkbox>
+          <Row>
+            <Checkbox
+              defaultChecked={props.get("addInfoDefault1")}
+              onChange={(state, _) => {
+                props.onChangeBool("addInfoDefault1", state);
+              }}
+            >
+              Remove my (previously answered in Management Tools) device(s) listed
+              earlier
+            </Checkbox>
+          </Row>
+          <Row>
+            <Checkbox
+              defaultChecked={props.get("addInfoDefault2")}
+              onChange={(state, _) => {
+                props.onChangeBool("addInfoDefault2", state);
+              }}
+            >
+              Change the settings of my device(s) listed earlier
+            </Checkbox>
+          </Row>
+          <Row>
+            <Checkbox
+              defaultChecked={props.get("addInfoDefault3")}
+              onChange={(state, _) => {
+                props.onChangeBool("addInfoDefault3", state);
+              }}
+            >
+              Put steroid or glucose in IV
+            </Checkbox>
+          </Row>
         </Col>
       </Row>
     </div>

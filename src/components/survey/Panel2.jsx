@@ -17,13 +17,13 @@ export default function Panel2(props) {
       </Row>
       <Row>
         <Col span={11}>
-          <div>To administer insulin, I use:</div>
+          <div className={style2.questionTitle}>To administer insulin, I use:</div>
           <div className={styles["round-border"]}>
-            <div>Insulin Pen Brand</div>
+            <div className={style2.questionText}>Insulin Pen Brand</div>
             <Input prefix={<AiOutlineSearch />}></Input>
           </div>
           <div className={styles["round-border"]}>
-            <div>Insulin Pump Brand</div>
+            <div className={style2.questionText}>Insulin Pump Brand</div>
             <Input prefix={<AiOutlineSearch />}></Input>
           </div>
         </Col>
@@ -31,13 +31,13 @@ export default function Panel2(props) {
           <div className={styles["p2-divider"]}></div>
         </Col>
         <Col span={11}>
-          <div>To monitor my glucose levels, I use:</div>
+          <div className={style2.questionTitle}>To monitor my glucose levels, I use:</div>
           <div className={styles["round-border"]}>
-            <div>Continuous Glucose Monitor (Brand)</div>
+            <div className={style2.questionText}>Continuous Glucose Monitor (Brand)</div>
             <Input prefix={<AiOutlineSearch />}></Input>
           </div>
           <div className={styles["round-border"]}>
-            <div>Software</div>
+            <div className={style2.questionText}>Software</div>
             <Input prefix={<AiOutlineSearch />}></Input>
           </div>
         </Col>

@@ -17,18 +17,24 @@ import Panel6 from "./Panel6.jsx";
 //       customize different pane
 
 const data = {
+  /*panel 1*/
   name: "",
   dobY: "",
   dobM: "",
   dobD: "",
+  /*panel 2*/
   insulinPen: "",
   insulinPump: "",
   cgm: "",
   cgmSoftware: "",
+  /*panel 3*/
+  raInsulin: "",
+  laInsulin: "",
   hba1c: "",
   ladose: "",
   avgInsToCarb: "",
   isf: "",
+  /*panel 4*/
   drName: "",
   drSpec: "",
   drAffi: "",
@@ -39,9 +45,11 @@ const data = {
   avCred: "",
   avCount: "",
   avSign: true,
+  /*panel 5*/
   addInfoDefault1: true,
   addInfoDefault2: true,
   addInfoDefault3: true,
+  /*panel 6*/
   addInfo4: "",
   addInfo5: "",
   addInfo6: "",
@@ -146,10 +154,10 @@ function DocCreation() {
         </Col>
       </Row>
       <Row>
-        <Col span={12} offset={6}>
+        <Col span={14} offset={5}>
           <Questionaries number={activePane} />
-          <div>
-            <Button onClick={onClickPrevious}>Previous</Button>
+          <div className={styles.pageControl}>
+            <Button onClick={onClickPrevious} className={styles.pageControlButton}>Previous</Button>
             <Button type="primary" onClick={onClickNext}>
               Next
             </Button>

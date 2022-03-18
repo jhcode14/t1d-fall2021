@@ -1,0 +1,30 @@
+.boxTitle{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 28px;
+    text-align: left;
+    /* coolGray/500 */
+    color: #6B7280;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 17px 0px;
+}
+
+.boxText{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    /* coolGray/500 */
+    color: #6B7280;
+
+}

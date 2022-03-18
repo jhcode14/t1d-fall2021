@@ -1,0 +1,26 @@
+.questionTitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 19px;
+    line-height: 150.02%;
+    text-align: left;
+    /* identical to box height, or 36px */
+    color: #000000;
+}
+
+.questionText {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+    /* identical to box height, or 156% */
+
+    display: flex;
+    align-items: center;
+
+    /* coolGray/700 */
+    color: #374151;
+}
