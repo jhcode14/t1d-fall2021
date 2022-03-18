@@ -6,7 +6,7 @@ export default function Panel1(props) {
   return (
     <Row>
       <Col span={24}>
-        <div className={styles.surveyTitle}> About You</div>
+        <div className={styles.surveyTitle}>About You</div>
         <div className={styles.surveyText}>
           Include your standard information for identification purposes and
           HbA1c such that healthcare personnel can understand your diabetes
@@ -14,18 +14,25 @@ export default function Panel1(props) {
         </div>
       </Col>
       <Col span={12} offset={6} className={styles["shadow-border"]}>
-        <div>Full Name</div>
-        <Input
-          placeholder="eg. Johnny Appleseed"
-          defaultValue={props.get("name")}
-          onChange={(text, _) => {
-            props.onChange("name", text);
-          }}
-        />
-        <div>Date of Birth</div>
-
+        <Row>
+          <p className={style1.questionTitle}>Full Name<span style={{ color: "red" }}> *</span></p>
+        </Row>
+        <Row>
+          <Input
+            placeholder="eg. Johnny Appleseed"
+            defaultValue={props.get("name")}
+            onChange={(text, _) => {
+              props.onChange("name", text);
+            }}
+          />
+        </Row>
+        <br />
+        <Row>
+          <p className={style1.questionTitle}>Date of Birth<span style={{ color: "red" }}> *</span></p>
+        </Row>
+        
         <Row gutter={8}>
-          <Col span={6}>
+          <Col span={7}>
             <Input
               placeholder="Month"
               defaultValue={props.get("dobM")}
@@ -34,7 +41,7 @@ export default function Panel1(props) {
               }}
             />
           </Col>
-          <Col span={4}>
+          <Col span={6}>
             <Input
               placeholder="Day"
               defaultValue={props.get("dobD")}
@@ -43,7 +50,7 @@ export default function Panel1(props) {
               }}
             />
           </Col>
-          <Col span={4}>
+          <Col span={6}>
             <Input
               placeholder="Year"
               defaultValue={props.get("dobY")}
