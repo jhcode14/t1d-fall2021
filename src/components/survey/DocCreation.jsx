@@ -148,8 +148,8 @@ function DocCreation() {
       <Row>
         <Col span={12} offset={6}>
           <Questionaries number={activePane} />
-          <div>
-            <Button onClick={onClickPrevious}>Previous</Button>
+          <div className={styles.pageControl}>
+            <Button onClick={onClickPrevious} className={styles.pageControlButton}>Previous</Button>
             <Button type="primary" onClick={onClickNext}>
               Next
             </Button>
