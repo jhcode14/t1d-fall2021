@@ -11,7 +11,7 @@ class Example extends React.Component {
         return (
             <div>
                 <div id="doctor">
-                    <img src={convo} alt="conversation" />
+                    <img src={convo} alt="conversation" class="responsive"/>
                 </div>
                 <div id="button">
                 <Link to="/create">
