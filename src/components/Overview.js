@@ -8,20 +8,19 @@ class Overview extends React.Component {
         return (
             <Container id="overview_spacing">
                 <Row id="grid">
-                  <Col className="column">
-                  <div id="ov_container">
-                      <Row className="boxes">
-                          <h2 className="title">Free of cost</h2>
-                      </Row>
-                      <Row className="boxes">
-                          <h2 className="title">Fast creation</h2>
-                      </Row>
-                      <Row className="boxes">
-                          <h2 className="title">Powered by research</h2>
-                      </Row>
-                    </div>
+                    <Col className="column">
+                        <div id="ov_container">
+                            <Row className="boxes">
+                                <h2 className="title">Free of cost</h2>
+                            </Row>
+                            <Row className="boxes">
+                                <h2 className="title">Fast creation</h2>
+                            </Row>
+                            <Row className="boxes">
+                                <h2 className="title">Powered by research</h2>
+                            </Row>
+                        </div>
                     </Col>
-
                     <Col className="column">
                         <div id="explanation_container">
                             <h2 id="explanation_container_heading"><br />What can you do with the T1D care directive?</h2>
