@@ -7,7 +7,7 @@ class CreationGIF extends React.Component {
     render() {
         return(
             <div id="gif_box">
-                <img src={example} id="gif_img"/>
+                <img src={example} id="gif_img" alt=""/>
             </div>
         );
     }
