@@ -12,7 +12,7 @@ class CreateDirective extends React.Component {
                 <h2 id="call_to_action">
                     Take ownership over your care.
                 </h2>
-                <Link to="/create">
+                <Link to="/disclaimer">
                   <NormalButton className="MediumButtonText" >Create my directive</NormalButton>
                 </Link>
             </div>

@@ -17,6 +17,7 @@ import Firstfold from "./components/Firstfold.js";
 
 import SurveyNavigation from "./components/SurveyNavigation";
 import DocCreation from "./components/survey/DocCreation.jsx";
+import Disclaimer from "./components/survey/Disclaimer.jsx";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path="/create">
             <CreateForm />
+          </Route>
+          <Route path="/disclaimer">
+            <DisclaimerPage />
           </Route>
           <Route path="/">
             <Landing />
@@ -70,6 +74,15 @@ function About() {
       <Navigation />
       <h2>Page saved for About Us</h2>
       <Footer />
+    </div>
+  );
+}
+
+function DisclaimerPage() {
+  return (
+    <div className="App">
+      <SurveyNavigation />
+      <Disclaimer />
     </div>
   );
 }

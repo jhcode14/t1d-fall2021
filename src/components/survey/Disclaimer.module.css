@@ -1,0 +1,85 @@
+.titleContainer {
+    width: 100%;
+    height: 230px;
+    background-color: #374151;
+}
+
+.containerTitle {
+  font-family: "Inter";
+  font-style: "normal";
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 42px;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  margin-top: 1%;
+}
+
+.containerTitle2 {
+  font-family: "Inter";
+  font-style: "normal";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 42px;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  margin-top: 3%;
+}
+
+.outTitle{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.boxText1{
+    /* text-lg/Medium */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    /* identical to box height, or 156% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* coolGray/700 */
+
+    color: #374151;
+}
+
+.boxText2{
+    /* text-lg/Medium */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    /* or 156% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    /* coolGray/500 */
+
+    color: #6B7280;
+}
+
+.exitPageButton {
+    margin-right: 10px;
+}
+  

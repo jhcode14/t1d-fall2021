@@ -19,7 +19,7 @@ class Firstfold extends React.Component {
                         <h2 id="ff_boldtext">Manage T1D the way you want </h2>
                         <h3 id="ff_heading">Type 1 Diabetes Care Directive</h3>
                         <h4 id="ff_description">A one-page document that help care providers recognize, validate, and follow your care wishes. </h4>
-                        <Link to="/create">
+                        <Link to="/disclaimer">
                           <NormalButton className="MediumButtonText" >Create my directive</NormalButton>
                         </Link>
                     </Col>

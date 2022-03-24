@@ -14,7 +14,7 @@ class Example extends React.Component {
                     <img src={convo} alt="conversation" class="responsive"/>
                 </div>
                 <div id="button">
-                <Link to="/create">
+                <Link to="/disclaimer">
                   <NormalButton className="MediumButtonText" >Create my directive</NormalButton>
                 </Link>
                 </div>
