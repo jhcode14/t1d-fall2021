@@ -22,7 +22,8 @@ export default function Panel4(props) {
           <Row>
             <div className={style4.boxText}>Name</div>
             <Input
-              placeholder="eg. Dr. Normal"
+              addonBefore="Dr. "
+              placeholder="eg. Normal"
               defaultValue={props.get("drName")}
               onChange={(text, _) => {
                 props.onChange("drName", text);

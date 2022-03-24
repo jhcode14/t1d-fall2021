@@ -1,5 +1,6 @@
-import { Row, Col, Input, Checkbox } from "antd";
-import { AiOutlineSearch } from "react-icons/ai";
+import { Row, Col, Input } from "antd";
+//disabled search option because no option is provided
+//import { AiOutlineSearch } from "react-icons/ai";
 import style2 from "./Panel2.module.css";
 import styles from "./DocCreation.module.css";
 
@@ -20,11 +21,21 @@ export default function Panel2(props) {
           <div className={style2.questionTitle}>To administer insulin, I use:</div>
           <div className={styles["round-border"]}>
             <div className={style2.questionText}>Insulin Pen Brand</div>
-            <Input prefix={<AiOutlineSearch />}></Input>
+            <Input
+              defaultValue={props.get("insulinPen")}
+              onChange={(text, _) => {
+                props.onChange("insulinPen", text);
+              }}
+            />
           </div>
           <div className={styles["round-border"]}>
             <div className={style2.questionText}>Insulin Pump Brand</div>
-            <Input prefix={<AiOutlineSearch />}></Input>
+            <Input
+              defaultValue={props.get("insulinPump")}
+              onChange={(text, _) => {
+                props.onChange("insulinPump", text);
+              }}
+            />
           </div>
         </Col>
         <Col span={2}>
@@ -34,11 +45,21 @@ export default function Panel2(props) {
           <div className={style2.questionTitle}>To monitor my glucose levels, I use:</div>
           <div className={styles["round-border"]}>
             <div className={style2.questionText}>Continuous Glucose Monitor (Brand)</div>
-            <Input prefix={<AiOutlineSearch />}></Input>
+            <Input
+              defaultValue={props.get("cgm")}
+              onChange={(text, _) => {
+                props.onChange("cgm", text);
+              }}
+            />
           </div>
           <div className={styles["round-border"]}>
             <div className={style2.questionText}>Software</div>
-            <Input prefix={<AiOutlineSearch />}></Input>
+            <Input
+              defaultValue={props.get("cgmSoftware")}
+              onChange={(text, _) => {
+                props.onChange("cgmSoftware", text);
+              }}
+            />
           </div>
         </Col>
       </Row>

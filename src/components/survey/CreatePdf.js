@@ -40,7 +40,7 @@ async function CreatePDF(data) {
 
   const d = new Date();
   const headerLine1 = `${data.name} D.O.B ${data.dobY}/${data.dobM}/${data.dobD}`;
-  const headerLine2 = `Last updated: ${d.getFullYear}/${d.getMonth}/${d.getDate}`;
+  const headerLine2 = `Last updated: ${d.getFullYear()}/${d.getMonth()}/${d.getDate()}`;
   doc.text(headerLine1, headerLineX, headerL1Y, { align: "right" });
   doc.text(headerLine2, headerLineX, headerL2Y, { align: "right" });
 
@@ -63,7 +63,7 @@ async function CreatePDF(data) {
   // -----4 (non-static)----- Endorsed text below title
   doc.setFont("times", "normal");
   doc.setFontSize(normalSize);
-  const endorsed = data.drName ? `Endorsed by ${data.drName}` : "";
+  const endorsed = data.drName ? `Endorsed by Dr.${data.drName}` : "";
   doc.text(endorsed, 108, 40.12, { align: "center" });
 
   // -----5----- Paragraph 1 starter
@@ -91,9 +91,8 @@ async function CreatePDF(data) {
   });
 
   // -----7----- Paragraph 2
-  // To be changed (non-static)
-  const p2input1 = "HbA1c = 5.8%, 8/23/2021";
-  const p2input2 = "80-150mg/dl";
+  const p2input1 = `HbA1c = ${data.hba1c}%`;
+  const p2input2 = `${data.isf} mg/dl`;
   const p2input3 = "the CGM and pump";
 
   // final outline
@@ -106,7 +105,7 @@ async function CreatePDF(data) {
     "*When I am sound of mind,* I am the best person to" +
     " manage my diabetes. I want to retain control of my management using " +
     p2input3 +
-    `. *In other cases,* I wish my ${data.drSpec} ${data.drName} be consulted.`;
+    `. *In other cases,* I wish my ${data.drSpec} Dr. ${data.drName} be consulted.`;
 
   let p2X = XAlign;
   let p2Y = 79;
@@ -135,11 +134,10 @@ async function CreatePDF(data) {
   doc.setFont("times", "normal");
   let dbY = 114.1;
 
-  // dmArray to be replaced with input array
   const dmArray = [
-    "Blood Glucose monitoring: Dexcom G6 CGM that measures my blood sugar every 5 minutes.",
-    "Insulin administration/pump: Omnipod",
-    "Software: Nightscout that gives access to real time blood sugar.",
+    `Blood Glucose monitoring: ${data.cgm} that measures my blood sugar.`,
+    `Insulin administration/pump: ${data.insulinPump}`,
+    `Software: ${data.cgmSoftware}.`,
   ];
   dmArray.map((text) => {
     text = "  \u2022  " + text;
@@ -162,12 +160,12 @@ async function CreatePDF(data) {
 
   doc.setFont("times", "normal");
 
-  // idArray to be replaced with input array
   const idArray = [
-    "Insulin type: Lispro",
-    "Basal Insulin rate: 0.8 - 1.0 U/h",
-    "Insulin to carbohydrate ratio: 1 units to 15 g",
-    "Insulin sensitivity factor:  1 unit of insulin decrease bg by 35 mg/dL",
+    `Insulin type: ${data.laInsulin} (Long), ${data.raInsulin} (Fast)`,
+    `Insulin Pen Brand: ${data.insulinPen}`,
+    `Typical daily long acting insulin dose: ${data.ladose}`,
+    `Insulin to carbohydrate ratio: 1 units to ${data.avgInsToCarb} g`,
+    `Insulin sensitivity factor:  1 unit of insulin decrease bg by ${data.isf} mg/dL`,
   ];
   idArray.map((text) => {
     text = "  \u2022  " + text;
@@ -188,16 +186,22 @@ async function CreatePDF(data) {
   doc.text("Contacts", XAlign, 152.75);
 
   // const to be changed by data input
-  const cInput1 = "my Endocrinologist Dr. Ahn or Diabetes Advocate Mr.Do";
+  const cInput1 = `my Endocrinologist Dr. ${data.drName} or Diabetes Advocate ${data.avName}`;
 
-  const cChecklist = [
-    "Remove my Dexcom/Ominipod device",
-    "Change settings of my devices",
-    "Put steroid on glucose in IV.",
-  ];
+  var cChecklist = [];
+  if (data.addInfoDefault1) {
+    cChecklist.push("Remove my Dexcom/Ominipod device")
+  }
+  if (data.addInfoDefault2) {
+    cChecklist.push("Change settings of my devices")
+  }
+  if (data.addInfoDefault3) {
+    cChecklist.push("Put steroid or glucose in IV")
+  }
+
 
   const cText =
-    "Please contact " +
+    `Please contact my ${data.drSpec} Dr. ${data.drName}` +
     cInput1 +
     " if the following decisions are to be made: ";
 
@@ -235,10 +239,11 @@ async function CreatePDF(data) {
   });
 
   // -----12-----
-  var boxY = cY;
+  var boxY = cY + 10;
   const boxXSize = 80;
-  const boxYSize = 45;
-  if (boxY + 70 >= YMaxHeight - 25) {
+  const boxYSize = 40;
+  var box2XAlign = XAlign
+  if (boxY + boxYSize >= YMaxHeight - 25) {
     doc.addPage();
     boxY = 25;
 
@@ -249,19 +254,56 @@ async function CreatePDF(data) {
     doc.text(footerUpdate, XAlign, footerUpdateY);
   }
   // -----12.1----- box1 (left)
-  doc.line(XAlign, boxY, XAlign + boxXSize, boxY);
-  doc.line(XAlign, boxY + boxYSize, XAlign + boxXSize, boxY + boxYSize);
-  doc.line(XAlign, boxY, XAlign, boxY + boxYSize);
-  doc.line(XAlign + boxXSize, boxY, XAlign + boxXSize, boxY + boxYSize);
+  if(data.drSign){
+    // box
+    doc.line(XAlign, boxY, XAlign + boxXSize, boxY);
+    doc.line(XAlign, boxY + boxYSize, XAlign + boxXSize, boxY + boxYSize);
+    doc.line(XAlign, boxY, XAlign, boxY + boxYSize);
+    doc.line(XAlign + boxXSize, boxY, XAlign + boxXSize, boxY + boxYSize);
+    box2XAlign += 85;
+
+    // words
+    doc.text(`Dr. ${data.drName}`,XAlign+5, boxY+25)
+    doc.setFont("times", "bold");
+    doc.text(`${data.drSpec}, ${data.drAffi}`, XAlign+5, boxY+31)
+    doc.setFont("times", "normal");
+    doc.text(`${data.drCont}`,XAlign+5, boxY+37)
+  }
+  
   // -----12.2----- box2 (right)
-  const box2XAlign = XAlign + 85;
+  if(data.avSign){
+    // box
+    doc.line(box2XAlign, boxY, box2XAlign + boxXSize, boxY);
+    doc.line(box2XAlign, boxY + boxYSize, box2XAlign + boxXSize, boxY + boxYSize);
+    doc.line(box2XAlign, boxY, box2XAlign, boxY + boxYSize);
+    doc.line(box2XAlign + boxXSize, boxY, box2XAlign + boxXSize, boxY + boxYSize);  
+    
+    // words
+    doc.text(`${data.avName}`,box2XAlign+5, boxY+25)
+    doc.setFont("times", "bold");
+    doc.text(`${data.avCred}, ${data.avRela}`, box2XAlign+5, boxY+31)
+    doc.setFont("times", "normal");
+    doc.text(`${data.avCount}`,box2XAlign+5, boxY+37)
+  }
+  
+  // -----13----- page +1: additional info
+  doc.addPage();
+  cY = 25; // restart height position
 
-  doc.line(box2XAlign, boxY, box2XAlign + boxXSize, boxY);
-  doc.line(box2XAlign, boxY + boxYSize, box2XAlign + boxXSize, boxY + boxYSize);
-  doc.line(box2XAlign, boxY, box2XAlign, boxY + boxYSize);
-  doc.line(box2XAlign + boxXSize, boxY, box2XAlign + boxXSize, boxY + boxYSize);
+  // ADD HEADER/FOOTER to PAGE 2
+  doc.text(headerLine1, headerLineX, headerL1Y, { align: "right" });
+  doc.text(headerLine2, headerLineX, headerL2Y, { align: "right" });
+  doc.text(footerName, XAlign, footerNameY);
+  doc.text(footerUpdate, XAlign, footerUpdateY);
+  
+  // Beware of line extending out of page. Did not implement word wrap
 
-  // -----13----- page 2: additional info
+  doc.text(data.addCommentsMed, XAlign, cY+5);
+  doc.text(data.addCommentsDiet, XAlign, YMaxHeight/2+10);
+
+  doc.setFont("times", "bold");
+  doc.text("Medications", XAlign, cY)
+  doc.text("Diet", XAlign, YMaxHeight/2+5)
 
   // Download pdf
   doc.save("T1D_CareDirective.pdf");
