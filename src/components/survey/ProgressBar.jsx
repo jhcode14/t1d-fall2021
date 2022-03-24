@@ -113,7 +113,7 @@ export default function ProgressBar(key) {
   } else if (paneKey === 7) {
     display = (
       <div>
-        <div className={styles.progressText}>Form Completion</div>
+        <div className={styles.finished}>Form Completed. Download Below.</div>
       </div>
     );
   } else {

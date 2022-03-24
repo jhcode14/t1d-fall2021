@@ -12,10 +12,6 @@ import Panel4 from "./Panel4.jsx";
 import Panel5 from "./Panel5.jsx";
 import Panel6 from "./Panel6.jsx";
 
-// ToDo: disable next/previous button when page 1 or 7
-//       show advanced pane
-//       customize different pane
-
 const data = {
   /*panel 1*/
   name: "",

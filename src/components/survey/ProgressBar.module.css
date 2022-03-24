@@ -43,6 +43,11 @@
   background-color: #5048e5;
 }
 
+.finished {
+  margin-top: 70px;
+  color: white;
+}
+
 .progress-tab-active {
   font-family: "Inter";
   font-style: normal;
@@ -69,4 +74,8 @@
 
   color: white;
   background-color: #5c6572;
+}
+
+.download {
+  margin-top: 20px;
 }

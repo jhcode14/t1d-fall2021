@@ -1,5 +1,9 @@
 import React from "react";
 import jsPDF from "jspdf";
+import { Button } from "antd";
+
+//borrow from progress bar
+import styles from "./ProgressBar.module.css";
 
 /*
     Unit conversion sample:
@@ -312,15 +316,15 @@ async function CreatePDF(data) {
 function CreatePdf(data) {
   return (
     <React.Fragment>
-      <div>
-        <button
+      <div className={styles.download}>
+        <Button
           onClick={function () {
             CreatePDF(data.data);
           }}
           type="primary"
         >
           Download PDF
-        </button>
+        </Button>
       </div>
     </React.Fragment>
   );
